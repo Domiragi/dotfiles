@@ -6,6 +6,10 @@ execute pathogen#infect()
 inoremap kj <ESC>
 let mapleader = "z"
 
+"  youcompleteme close after completion and z-g will show documentation
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 " settings for syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -23,8 +27,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 "set behaviours
 set nocompatible
-filetype plugin indent on 
-syntax on 
+filetype plugin indent on
+syntax on
 set encoding=utf-8
 set modelines=0
 set tabstop =4
