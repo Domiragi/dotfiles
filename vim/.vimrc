@@ -6,6 +6,21 @@ execute pathogen#infect()
 inoremap kj <ESC>
 let mapleader = "z"
 
+" settings for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" open nerdtree browser
+map <F10> :NERDTreeToggle<CR>
+" close vim if only nerdtree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 "set behaviours
 set nocompatible
 filetype plugin indent on 
@@ -21,6 +36,8 @@ set visualbell
 set ttyfast
 set laststatus =2
 set number
+set cul
+
 
 "visual settings
 colorscheme onedark
