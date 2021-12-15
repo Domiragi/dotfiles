@@ -1,0 +1,141 @@
+
+/**
+ * ROFI Color theme
+ * User: domiragi
+ * Copyright: domiragi
+ */
+
+configuration {
+    width: 25;
+    lines: 25;
+    display-drun: "";
+    display-run: "";
+    display-window:"";
+    font: "Source Code Pro 13";
+    location: 0;
+    show-icons: true;
+    terminal: "kitty";
+    icon-theme: "Ant-Bloody";
+    sidebar-mode:false;
+    hide-scrollbar: true;
+}
+
+* {
+    background-color:            #171416;
+    background:                  @normal-background;
+    foreground:                  @normal-foreground;
+    
+    normal-background:           @background-color;
+    normal-foreground:           #e8562b;
+    active-background:           #f0bba0;
+    active-foreground:           #171416;
+    urgent-background:           #00c7ff;
+    urgent-foreground:           #171416;
+
+    selected-normal-background:  #e8562b;
+    selected-normal-foreground:  @active-foreground;
+    selected-active-background:  @normal-foreground;
+    selected-active-foreground:  @active-foreground;
+    selected-urgent-background:  @normal-foreground;
+    selected-urgent-foreground:  @active-foreground;
+
+    alternate-normal-background: @background-color;
+    alternate-normal-foreground: @normal-foreground;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+}
+
+#window {
+    padding: 4;
+    border: 4;
+    border-color: #e8562b;
+}
+
+#mainbox {
+    spacing: 0;
+}
+
+#message {
+    border:       2px 0px 0px ;
+    border-color: #dbdfbc;
+    padding:      0;
+}
+
+#textbox {
+    text-color: @foreground;
+}
+
+#inputbar {
+    spacing: 0;
+    text-color: @normal-foreground;
+}
+
+#prompt, entry, case-indicator {
+    text-color: @normal-foreground;
+}
+
+
+#inputbar {
+    children:   [ prompt,textbox-spacing,entry,case-indicator ];
+}
+
+#textbox-spacing {
+    expand:     false;
+    str:        " ";
+}
+
+#listview {
+    fixed-height: 0;
+    spacing: 0;
+}
+
+#element {
+    spacing: 0;
+}
+
+#element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+
+#element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+#element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+
+#element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+
+#element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+
+#element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+
+#element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+
+#element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+
+#element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
