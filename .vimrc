@@ -10,7 +10,8 @@ func
 call plug#begin('~/.vim/plugged')
 
 "Declare list of plugins
-Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
+"YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
+"Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
@@ -70,7 +71,15 @@ set undolevels=1000
 "set color scheme
 set termguicolors
 set t_ut=""
-colorscheme night-owl
+if filereadable(expand("$HOME/.vim/plugged/night-owl.vim/colors/night-owl.vim"))
+	colorscheme night-owl
+else
+	colorscheme desert
+endif
+
+"fix an error with using Linux in Windows, specifically WSL; which causes opening
+"up Vim will be defaulting to Replace mode
+set t_u7=
 
 "**********  Key mapping  **********
 
@@ -212,7 +221,8 @@ let g:ascii= [
 let g:startify_custom_header =
             \ startify#pad(g:ascii)
 
-let g:startify_bookmarks = [{'cfg': '~/.config'}]
+"to set bookmark, use the syntax: {'folder':'path/to/folder'}
+let g:startify_bookmarks = []
 let g:startify_update_oldfiles = 1
 let g:startify_files_number = 10
 
