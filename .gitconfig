@@ -1,0 +1,11 @@
+[core]
+	editor = vim
+
+[alias]
+    # git-log
+    # Show basic oneline commit
+    hs = log --abbrev-commit --graph --pretty=format:'%C(auto,yellow)%h %C(auto,green)%<(9,trunc)%aN%C(auto)%d %Creset%s' 
+    # Show author date, time
+    hst = log --abbrev-commit --graph --pretty=format:'%C(auto,yellow)%h %Creset%ad %C(auto,green)%<(9,trunc)%aN%C(auto)%d %Creset%s' --date=format:'%F %T'
+    # Show author date, time, time zone, relative commit time
+    hsf = log --abbrev-commit --graph --pretty=format:'%C(auto,yellow)%h %Creset%ad (%cr) %C(auto,green)%<(9,trunc)%aN%C(auto)%d %Creset%s' --date=format:'%a %F %T %z'
