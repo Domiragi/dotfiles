@@ -4,6 +4,14 @@
     "actions": 
     [
         {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 7
+            },
+            "keys": "ctrl+8"
+        },
+        {
             "command": "unbound",
             "keys": "ctrl+shift+t"
         },
@@ -72,26 +80,15 @@
             "keys": "ctrl+v"
         },
         {
+            "command": "scrollUpPage",
+            "keys": "ctrl+shift+k"
+        },
+        {
             "command": 
             {
                 "action": "scrollDown"
             },
             "keys": "ctrl+j"
-        },
-        {
-            "command": 
-            {
-                "action": "scrollUp"
-            },
-            "keys": "ctrl+k"
-        },
-        {
-            "command": "scrollDownPage",
-            "keys": "ctrl+shift+j"
-        },
-        {
-            "command": "scrollUpPage",
-            "keys": "ctrl+shift+k"
         },
         {
             "command": 
@@ -103,13 +100,15 @@
             "keys": "alt+shift+d"
         },
         {
+            "command": "scrollDownPage",
+            "keys": "ctrl+shift+j"
+        },
+        {
             "command": 
             {
-                "action": "splitPane",
-                "split": "right",
-                "splitMode": "duplicate"
+                "action": "scrollUp"
             },
-            "keys": "ctrl+h"
+            "keys": "ctrl+k"
         },
         {
             "command": 
@@ -119,6 +118,15 @@
                 "splitMode": "duplicate"
             },
             "keys": "ctrl+b"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "right",
+                "splitMode": "duplicate"
+            },
+            "keys": "ctrl+h"
         },
         {
             "command": "find",
@@ -166,6 +174,13 @@
         {
             "command": 
             {
+                "action": "newTab"
+            },
+            "keys": "ctrl+t"
+        },
+        {
+            "command": 
+            {
                 "action": "openSettings",
                 "target": "settingsUI"
             },
@@ -174,23 +189,9 @@
         {
             "command": 
             {
-                "action": "newTab"
-            },
-            "keys": "ctrl+t"
-        },
-        {
-            "command": 
-            {
                 "action": "newWindow"
             },
             "keys": "ctrl+n"
-        },
-        {
-            "command": 
-            {
-                "action": "closeTab"
-            },
-            "keys": "ctrl+w"
         },
         {
             "command": 
@@ -247,14 +248,6 @@
                 "index": 6
             },
             "keys": "ctrl+7"
-        },
-        {
-            "command": 
-            {
-                "action": "switchToTab",
-                "index": 7
-            },
-            "keys": "ctrl+8"
         }
     ],
     "alwaysShowNotificationIcon": true,
@@ -288,9 +281,11 @@
             },
             {
                 "commandline": "kali.exe",
+                "cursorShape": "filledBox",
                 "guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
                 "hidden": false,
                 "name": "kali-linux",
+                "scrollbarState": "always",
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory": null
             },
