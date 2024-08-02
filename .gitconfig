@@ -1,5 +1,8 @@
 [core]
-	editor = vim
+    editor = vim
+
+[diff]
+    tool = vimdiff
 
 [alias]
     # git-log
