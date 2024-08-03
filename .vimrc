@@ -1,3 +1,7 @@
+"**********  Package  **********
+packadd! matchit " Package for jumping to matching tags (if-endif, etc) using the '%' command
+
+"**********  Plugins  **********
 
 "Automatically install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -9,9 +13,9 @@ func
 "Plugin will be downloaded under the specified directory
 call plug#begin('~/.vim/plugged')
 
-"Declare list of plugins
+"Declare plugins
 "YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
-"Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
+Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
@@ -27,8 +31,6 @@ Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 "Theming
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ayu-theme/ayu-vim'
-Plug 'joshdick/onedark.vim'
 Plug 'haishanh/night-owl.vim'
 
 "List ends here, after this call plugins will become visible to Vim
@@ -36,49 +38,58 @@ call plug#end()
 
 "**********  Behavior  **********
 
-syntax on
-set nocp
-set expandtab
-set tabstop     =4
-set softtabstop =4
-set shiftwidth  =4
-set autoindent
-set nocompatible
-"Break lines at word
-set linebreak
-set textwidth=200
-set wrap
-set breakindent
-set wrapscan
-"indent with at least 40 character width remaining
-set breakindentopt=min:40
+set nocompatible " Set VIM to be incompatible with VI for better QOL improvements by setting several options
 filetype plugin indent on
-set encoding  =utf-8
-set modelines =0
-"Highlight matching brace
-set showmatch
-set showmode
-set ttyfast
-set laststatus=2
-set cul
+" Set text to wrap if filetype is text or MD
+autocmd FileType text setLocal wrap
+autocmd FileType markdown setLocal wrap
+syntax on
+if has('mouse')
+    set mouse =a
+    set mousemodel =popup_setpos
+endif
+set autoindent
+set backspace       =indent,eol,start
+set belloff         =all
+set breakindent
+set breakindentopt  =min:40 " Indent with at least 41 character width remaining
+set cursorline
+set display         =lastline
+set encoding        =utf-8
+set expandtab " Expand tab into space
+set hidden
+set history         =300
+set hlsearch
+set incsearch
+set laststatus      =2
+set linebreak " Break line at word
+set list
+set listchars       =trail:-,tab:\|\ 
+set modelines       =0
+set nojoinspaces
+set nostartofline
 set number
-set backspace =indent,eol,start
-"Highlight all search results (Disabled since easy-motion also has search function)
-"set hlsearch
-set undolevels=1000
-"set spell
-
-"set color scheme
-set termguicolors
-set t_ut=""
+set relativenumber
+set sidescroll      =1
+set shiftwidth      =4
+set showmatch " Highlight matching brace
+set showmode
+set softtabstop     =4
+set t_ut            =""
+set tags            ="./tags;,tags"
+set termguicolors "Enable color scheme
+set ttimeout
+set ttyfast
+set undolevels      =1000
+set wrapscan
 if filereadable(expand("$HOME/.vim/plugged/night-owl.vim/colors/night-owl.vim"))
-	colorscheme night-owl
+    colorscheme night-owl
 else
-	colorscheme desert
+    colorscheme desert
 endif
 
-"fix an error with using Linux in Windows, specifically WSL; which causes opening
-"up Vim will be defaulting to Replace mode
+"Fix an error with using Linux in Windows, specifically WSL; which causes
+"Vim to be defaulting to Replace mode upon opening
 set t_u7=
 
 "**********  Key mapping  **********
@@ -113,15 +124,15 @@ vnoremap K 10k
 "Enable saving edited file that needs root privilage before opening
 cmap w!! w !sudo tee % >/dev/null
 
-"**********  Plugins  **********
+"**********  Plugins Settings  **********
 
-"YouCompleteMe
+"""YouCompleteMe"""
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_min_num_of_chars_for_completion=3
-"let g:ycm_key_list_stop_completion=['<C-TAB>']
+"Let g:ycm_key_list_stop_completion=['<C-TAB>']
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-"NerdTree
+""""NerdTree"""
 map <C-e> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 "Make sure that vim doesn't open files and other buffers on NERDTree window
@@ -146,15 +157,15 @@ call NERDTreeHighlightFile('coffee','red','none','red','#151515')
 call NERDTreeHighlightFile('js','red','none','#ffa500','#151515')
 call NERDTreeHighlightFile('php','magenta','none','#ff00ff','#151515')
 
-"vim-better-whitespace
+"""vim-better-whitespace"""
 let g:better_whitespace_enabled=0
 let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
 let g:show_spaces_that_precede_tabs=1
 
-"indentLine
+"""indentLine"""
 let g:indentLine_char="|"
 
-"vim-easymotion
+"""vim-easymotion"""
 let g:EasyMotion_do_mapping=0 "Disable default mapping"
 "Might change to just <Leader> for easier pressing, this is in case it messes with compability with other plugins
 let g:EasyMotion_smartcase=1
@@ -168,7 +179,7 @@ map  <Leader><Leader>k <Plug>(easymotion-k)
 map  <Leader><Leader>w <Plug>(easymotion-w)
 map  <Leader><Leader>b <Plug>(easymotion-b)
 
-"vim-multiple-cursors
+"""vim-multiple-cursors"""
 let g:multi_cursor_use_default_mapping = 0
 
 let g:multi_cursor_start_word_key      = '<Leader>n'
@@ -180,23 +191,23 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-"vim-easy-align
+"""vim-easy-align"""
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-"undotree
+"""undotree"""
 nnoremap <F3> :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_CustomUndotreeCmd  = 'topleft vertical 30 new'
 let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
 let g:undotree_TreeNodeShape = 'o'
-"if set persistent_undo, will save undo history into a file under a specified directory
+"If set persistent_undo, will save undo history into a file under a specified directory
 if has ("persistent_undo")
     set undodir=$HOME."/.undodir"
     set undofile
 endif
 
-"vim-startify
+"""vim-startify"""
 let g:startify_lists = [
             \{ 'type': 'files',     'header': ['   Files ']            },
             \{ 'type': 'dir',       'header': ['   Folders '. getcwd()] },
@@ -221,13 +232,13 @@ let g:ascii= [
 let g:startify_custom_header =
             \ startify#pad(g:ascii)
 
-"to set bookmark, use the syntax: {'folder':'path/to/folder'}
+"To set bookmark, use the syntax: {'folder':'path/to/folder'}
 let g:startify_bookmarks = []
 let g:startify_update_oldfiles = 1
 let g:startify_files_number = 10
 
-"Vim-airline
+"""Vim-airline"""
 let g:airline_theme='desertink'
 let g:airline_powerline_fonts=1
-"stop the delay/pause when leaving insert mode
+"Stop the delay/pause when leaving insert mode
 let ttimeoutlen=10
