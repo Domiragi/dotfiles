@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
 
 "Declare plugins
 "YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
-Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
+"Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 Plug 'tpope/vim-fugitive'
 Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
@@ -36,13 +36,13 @@ Plug 'haishanh/night-owl.vim'
 "List ends here, after this call plugins will become visible to Vim
 call plug#end()
 
-"**********  Behavior  **********
+"**********  Options  **********
 
 set nocompatible " Set VIM to be incompatible with VI for better QOL improvements by setting several options
 filetype plugin indent on
 " Set text to wrap if filetype is text or MD
-autocmd FileType text setLocal wrap
-autocmd FileType markdown setLocal wrap
+autocmd FileType text setlocal wrap
+autocmd FileType markdown setlocal wrap
 syntax on
 if has('mouse')
     set mouse =a
@@ -53,6 +53,7 @@ set backspace       =indent,eol,start
 set belloff         =all
 set breakindent
 set breakindentopt  =min:40 " Indent with at least 41 character width remaining
+set copyindent
 set cursorline
 set display         =lastline
 set encoding        =utf-8
@@ -69,35 +70,39 @@ set modelines       =0
 set nojoinspaces
 set nostartofline
 set number
-set relativenumber
 set sidescroll      =1
 set shiftwidth      =4
 set showmatch " Highlight matching brace
 set showmode
+set startofline
 set softtabstop     =4
-set t_ut            =""
 set tags            ="./tags;,tags"
-set termguicolors "Enable color scheme
+set termguicolors
 set ttimeout
 set ttyfast
 set undolevels      =1000
+set wildignore      +=*.class,*.elf,*.jpg,*.jpeg,*.o,*.out,*.pdf,*.png,*.pyc,*.img
 set wrapscan
-if filereadable(expand("$HOME/.vim/plugged/night-owl.vim/colors/night-owl.vim"))
-    colorscheme night-owl
-else
-    colorscheme desert
-endif
 
-"Fix an error with using Linux in Windows, specifically WSL; which causes
-"Vim to be defaulting to Replace mode upon opening
+"**********  Term-Options  **********
+
+set t_ut            =""
+" Fix an error with using Linux in Windows, specifically WSL; which causes
+" Vim to be defaulting to Replace mode upon opening
 set t_u7=
+
+" Set cursor shape regardless of terminals
+" 1: blink block 2:block 3:blinking underline 4:underline 5:blinking vertical bar 6:vertical bar
+let &t_SI = "\<Esc>[1 q" "Input mode
+let &t_SR = "\<Esc>[1 q" "Replace mode
+let &t_EI = "\<Esc>[2 q" "Normal mode
 
 "**********  Key mapping  **********
 
-inoremap kj <ESC>
 let mapleader ="\<SPACE>"
+inoremap kj <ESC>
 "Press Enter after search to remove hightlight
-nnoremap <silent> <CR> :nohlsearch <CR><CR>
+nnoremap <silent> <CR> :nohlsearch <CR>
 
 "A small script to enable Metakey(Alt)
 for i in range(97,122)
@@ -108,9 +113,11 @@ endfor
 "Go to the beginning of a line
 nnoremap <C-a> <ESC>^
 inoremap <C-a> <ESC>^
+vnoremap <C-a> <ESC>^
 "Go to the end of a line
 nnoremap <A-a> <ESC>$
 inoremap <A-a> <ESC>$
+vnoremap <A-a> <ESC>$
 "Switching panels
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
@@ -242,3 +249,11 @@ let g:airline_theme='desertink'
 let g:airline_powerline_fonts=1
 "Stop the delay/pause when leaving insert mode
 let ttimeoutlen=10
+
+"**********  Theme  **********
+
+if filereadable(expand("$HOME/.vim/plugged/night-owl.vim/colors/night-owl.vim"))
+    colorscheme night-owl
+else
+    colorscheme desert
+endif
