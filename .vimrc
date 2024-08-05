@@ -113,11 +113,11 @@ endfor
 "Go to the beginning of a line
 nnoremap <C-a> <ESC>^
 inoremap <C-a> <ESC>^
-vnoremap <C-a> <ESC>^
+vnoremap <C-a> ^
 "Go to the end of a line
-nnoremap <A-a> <ESC>$
-inoremap <A-a> <ESC>$
-vnoremap <A-a> <ESC>$
+nnoremap <M-a> <ESC>$
+inoremap <M-a> <ESC>$
+vnoremap <M-a> $
 "Switching panels
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
@@ -245,8 +245,44 @@ let g:startify_update_oldfiles = 1
 let g:startify_files_number = 10
 
 """Vim-airline"""
-let g:airline_theme='desertink'
-let g:airline_powerline_fonts=1
+let g:airline_theme='vndrx'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_powerline_fonts = 1
+let g:airline_symbols.dirty='*'
+let g:airline_symbols.linenr = ' |'
+let g:airline_symbols.colnr = ' '
+let g:airline_symbols.maxlinenr = '|'
+let g:airline_symbols.whitespace = ''
+let g:airline_section_y =''
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#buffers_label = 'buf'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" Use Meta (Alt) key to switch. Some terminals like WSL read Alt+1 as <Esc>1
+nmap <Esc>1 <Plug>AirlineSelectTab1
+nmap <Esc>2 <Plug>AirlineSelectTab2
+nmap <Esc>3 <Plug>AirlineSelectTab3
+nmap <Esc>4 <Plug>AirlineSelectTab4
+nmap <Esc>5 <Plug>AirlineSelectTab5
+nmap <Esc>6 <Plug>AirlineSelectTab6
+nmap <Esc>7 <Plug>AirlineSelectTab7
+nmap <Esc>8 <Plug>AirlineSelectTab8
+nmap <Esc>9 <Plug>AirlineSelectTab9
+
+" Uncomment these to use on a terminal that can read Meta (Alt) properly
+" nmap <M-1> <Plug>AirlineSelectTab1
+" nmap <M-2> <Plug>AirlineSelectTab2
+" nmap <M-3> <Plug>AirlineSelectTab3
+" nmap <A-4> <Plug>AirlineSelectTab4
+" nmap <A-5> <Plug>AirlineSelectTab5
+" nmap <A-6> <Plug>AirlineSelectTab6
+" nmap <A-7> <Plug>AirlineSelectTab7
+" nmap <A-8> <Plug>AirlineSelectTab8
+" nmap <A-9> <Plug>AirlineSelectTab9
 "Stop the delay/pause when leaving insert mode
 let ttimeoutlen=10
 
