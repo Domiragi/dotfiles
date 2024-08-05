@@ -102,14 +102,6 @@ if has ("persistent_undo")
 endif
 
 """vim-startify"""
-let g:startify_lists = [
-            \{ 'type': 'files',     'header': ['   Files ']            },
-            \{ 'type': 'dir',       'header': ['   Folders '. getcwd()] },
-            \{ 'type': 'sessions',  'header': ['   Sessions']       },
-            \{ 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-            \{ 'type': 'commands',  'header': ['   Commands']       },
-            \]
-
 let g:ascii= [
     \'░░░░░░░█▐▓▓░████▄▄▄█▀▄▓▓▓▌█ very cool',
     \'░░░░░▄█▌▀▄▓▓▄▄▄▄▀▀▀▄▓▓▓▓▓▌█ ',
@@ -123,13 +115,22 @@ let g:ascii= [
     \'▌▓▓▓▄▄▀▀▓▓▓▀▓▓▓▓▓▓▓▓█▓█▓█▓▓▌█▌ ',
     \'█▐▓▓▓▓▓▓▄▄▄▓▓▓▓▓▓█▓█▓█▓█▓▓▓▐█ WoW'
     \]
-let g:startify_custom_header =
-            \ startify#pad(g:ascii)
+let g:startify_custom_header = startify#pad(g:ascii)
+let g:startify_lists = [
+            \{ 'type': 'files',     'header': ['   Files ']            },
+            \{ 'type': 'dir',       'header': ['   Folders '. getcwd()] },
+            \{ 'type': 'sessions',  'header': ['   Sessions']       },
+            \{ 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+            \{ 'type': 'commands',  'header': ['   Commands']       },
+            \]
 
 "To set bookmark, use the syntax: {'folder':'path/to/folder'}
 let g:startify_bookmarks = []
+let g:startify_session_dir = '~/.vim/session'
 let g:startify_update_oldfiles = 1
-let g:startify_files_number = 10
+let g:startify_files_number = 15
+let g:startify_change_to_vcs_root = 1
+let g:startify_session_sort = 1
 
 """Vim-airline"""
 let g:airline_theme='vndrx'
