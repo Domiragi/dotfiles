@@ -95,6 +95,7 @@ let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_CustomUndotreeCmd  = 'topleft vertical 30 new'
 let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
 let g:undotree_TreeNodeShape = 'o'
+let g:undotree_ShortIndicators = 1
 "If set persistent_undo, will save undo history into a file under a specified directory
 if has ("persistent_undo")
     set undodir=$HOME."/.undodir"
