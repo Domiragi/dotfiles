@@ -24,7 +24,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
@@ -73,18 +72,6 @@ let g:show_spaces_that_precede_tabs=1
 
 """indentLine"""
 let g:indentLine_char="|"
-
-"""vim-multiple-cursors"""
-let g:multi_cursor_use_default_mapping = 0
-
-let g:multi_cursor_start_word_key      = '<Leader>n'
-let g:multi_cursor_select_all_word_key = '<A-n>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = '<Leader>n'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
 
 """vim-easy-align"""
 xmap ga <Plug>(EasyAlign)
