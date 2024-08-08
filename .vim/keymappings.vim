@@ -41,6 +41,9 @@ map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 """"NerdTree"""
 map <C-e> :NERDTreeToggle<CR>
 
+""""WhiteSpace"""
+let g:better_whitespace_operator = ""
+
 """EasyMotion"""
 let g:EasyMotion_do_mapping=0 "Disable default mapping"
 "Might change to just <Leader> for easier pressing, this is in case it messes with compability with other plugins

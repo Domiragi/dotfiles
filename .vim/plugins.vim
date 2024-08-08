@@ -65,9 +65,10 @@ call NERDTreeHighlightFile('js','red','none','#ffa500','#151515')
 call NERDTreeHighlightFile('php','magenta','none','#ff00ff','#151515')
 
 """vim-better-whitespace"""
-let g:better_whitespace_enabled=0
-let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
-let g:show_spaces_that_precede_tabs=1
+let g:better_whitespace_filetypes_blacklist = ['diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'fugitive']
+let g:show_spaces_that_precede_tabs = 1
+let g:better_whitespace_ctermcolor  = "214"
+let g:better_whitespace_guicolor    = "#d6801a"
 
 """indentLine"""
 let g:indentLine_char="|"
@@ -76,8 +77,8 @@ let g:indentLine_char="|"
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_CustomUndotreeCmd  = 'topleft vertical 30 new'
 let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
-let g:undotree_TreeNodeShape = 'o'
-let g:undotree_ShortIndicators = 1
+let g:undotree_TreeNodeShape      = 'o'
+let g:undotree_ShortIndicators    = 1
 "If set persistent_undo, will save undo history into a file under a specified directory
 if has ("persistent_undo")
     set undodir=$HOME."/.undodir"
@@ -87,20 +88,20 @@ endif
 """vim-startify"""
 let g:ascii= [
     \'░░░░░░░█▐▓▓░████▄▄▄█▀▄▓▓▓▌█ very cool',
-    \'░░░░░▄█▌▀▄▓▓▄▄▄▄▀▀▀▄▓▓▓▓▓▌█ ',
-    \'░░░▄█▀▀▄▓█▓▓▓▓▓▓▓▓▓▓▓▓▀░▓▌█ ',
+    \'░░░░░▄█▌▀▄▓▓▄▄▄▄▀▀▀▄▓▓▓▓▓▌█',
+    \'░░░▄█▀▀▄▓█▓▓▓▓▓▓▓▓▓▓▓▓▀░▓▌█',
     \'░░█▀▄▓▓▓███▓▓▓███▓▓▓▄░░▄▓▐█▌ such awesome',
-    \'░█▌▓▓▓▀▀▓▓▓▓███▓▓▓▓▓▓▓▄▀▓▓▐█ ',
-    \'▐█▐██▐░▄▓▓▓▓▓▀▄░▀▓▓▓▓▓▓▓▓▓▌█▌ ',
+    \'░█▌▓▓▓▀▀▓▓▓▓███▓▓▓▓▓▓▓▄▀▓▓▐█',
+    \'▐█▐██▐░▄▓▓▓▓▓▀▄░▀▓▓▓▓▓▓▓▓▓▌█▌',
     \'█▌███▓▓▓▓▓▓▓▓▐░░▄▓▓███▓▓▓▄▀▐█ much amazing',
-    \'█▐█▓▀░░▀▓▓▓▓▓▓▓▓▓██████▓▓▓▓▐█ ',
-    \'▌▓▄▌▀░▀░▐▀█▄▓▓██████████▓▓▓▌█▌ ',
-    \'▌▓▓▓▄▄▀▀▓▓▓▀▓▓▓▓▓▓▓▓█▓█▓█▓▓▌█▌ ',
+    \'█▐█▓▀░░▀▓▓▓▓▓▓▓▓▓██████▓▓▓▓▐█',
+    \'▌▓▄▌▀░▀░▐▀█▄▓▓██████████▓▓▓▌█▌',
+    \'▌▓▓▓▄▄▀▀▓▓▓▀▓▓▓▓▓▓▓▓█▓█▓█▓▓▌█▌',
     \'█▐▓▓▓▓▓▓▄▄▄▓▓▓▓▓▓█▓█▓█▓█▓▓▓▐█ WoW'
     \]
 let g:startify_custom_header = startify#pad(g:ascii)
 let g:startify_lists = [
-            \{ 'type': 'files',     'header': ['   Files ']            },
+            \{ 'type': 'files',     'header': ['   Files']            },
             \{ 'type': 'dir',       'header': ['   Folders '. getcwd()] },
             \{ 'type': 'sessions',  'header': ['   Sessions']       },
             \{ 'type': 'bookmarks', 'header': ['   Bookmarks']      },
@@ -108,30 +109,30 @@ let g:startify_lists = [
             \]
 
 "To set bookmark, use the syntax: {'folder':'path/to/folder'}
-let g:startify_bookmarks = []
-let g:startify_session_dir = '~/.vim/session'
-let g:startify_update_oldfiles = 1
-let g:startify_files_number = 15
+let g:startify_bookmarks          = []
+let g:startify_session_dir        = '~/.vim/session'
+let g:startify_update_oldfiles    = 1
+let g:startify_files_number       = 15
 let g:startify_change_to_vcs_root = 1
-let g:startify_session_sort = 1
+let g:startify_session_sort       = 1
 
 """Vim-airline"""
 let g:airline_theme='vndrx'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_powerline_fonts = 1
-let g:airline_symbols.dirty='*'
-let g:airline_symbols.linenr = ' |'
-let g:airline_symbols.colnr = ' '
-let g:airline_symbols.maxlinenr = '|'
+let g:airline_powerline_fonts    = 1
+let g:airline_symbols.dirty      = '*'
+let g:airline_symbols.linenr     = ' |'
+let g:airline_symbols.colnr      = ' '
+let g:airline_symbols.maxlinenr  = '|'
 let g:airline_symbols.whitespace = ''
-let g:airline_section_y =''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#buffers_label = 'buf'
+let g:airline_section_y          = ''
+let g:airline#extensions#tabline#enabled         = 1
+let g:airline#extensions#tabline#tab_nr_type     = 1
+let g:airline#extensions#tabline#buffers_label   = 'buf'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter       = 'unique_tail'
 
 "Stop the delay/pause when leaving insert mode
 let ttimeoutlen=10

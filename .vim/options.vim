@@ -28,7 +28,7 @@ set incsearch
 set laststatus      =2
 set linebreak " Break line at word
 set list
-set listchars       =trail:-,tab:\|\ 
+set listchars       =tab:\|\ 
 set modelines       =0
 set nojoinspaces
 set nostartofline
