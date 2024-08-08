@@ -55,6 +55,10 @@ map  <Leader><Leader>k <Plug>(easymotion-k)
 map  <Leader><Leader>w <Plug>(easymotion-w)
 map  <Leader><Leader>b <Plug>(easymotion-b)
 
+"""EasyAlign"""
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 """UndoTree"""
 nnoremap <F3> :UndotreeToggle<CR>
 

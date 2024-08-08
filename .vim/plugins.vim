@@ -17,7 +17,6 @@ call plug#begin('~/.vim/plugged')
 "YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
 "Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 Plug 'tpope/vim-fugitive'
-Plug 'mattn/emmet-vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
@@ -72,10 +71,6 @@ let g:show_spaces_that_precede_tabs=1
 
 """indentLine"""
 let g:indentLine_char="|"
-
-"""vim-easy-align"""
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
 
 """undotree"""
 let g:undotree_SetFocusWhenToggle = 1
