@@ -64,6 +64,10 @@ call NERDTreeHighlightFile('coffee','red','none','red','#151515')
 call NERDTreeHighlightFile('js','red','none','#ffa500','#151515')
 call NERDTreeHighlightFile('php','magenta','none','#ff00ff','#151515')
 
+"""AutoPairs"""
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutToggle = ""
+
 """vim-better-whitespace"""
 let g:better_whitespace_filetypes_blacklist = ['diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'fugitive']
 let g:show_spaces_that_precede_tabs = 1
