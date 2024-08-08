@@ -8,8 +8,8 @@ autocmd FileType text setlocal wrap
 autocmd FileType markdown setlocal wrap
 syntax on
 if has('mouse')
-    set mouse =a
-    set mousemodel =popup_setpos
+    set mouse       =a
+    set mousemodel  =popup_setpos
 endif
 set autoindent
 set backspace       =indent,eol,start
@@ -28,7 +28,7 @@ set incsearch
 set laststatus      =2
 set linebreak " Break line at word
 set list
-set listchars       =tab:\|\ 
+set listchars       =tab:\|\
 set modelines       =0
 set nojoinspaces
 set nostartofline
@@ -44,15 +44,23 @@ set termguicolors
 set ttimeout
 set ttyfast
 set undolevels      =1000
-set wildignore      +=*.class,*.elf,*.jpg,*.jpeg,*.o,*.out,*.pdf,*.png,*.pyc,*.img
+set wildignore     +=*.class,*.elf,*.jpg,*.jpeg,*.o,*.out,*.pdf,*.png,*.pyc,*.img
 set wrapscan
 
 "**********  Term-Options  **********
 
-set t_ut            =""
-" Fix an error with using Linux in Windows, specifically WSL; which causes
-" Vim to be defaulting to Replace mode upon opening
-set t_u7=
+function! SetWindowsTerminal()
+    if has("unix")
+        let lines = readfile("/proc/version")
+        if lines[0] =~ "Microsoft" || lines[0] =~ "microsoft"
+            " Fix an error with using Linux in Windows, specifically WSL; which causes
+            " Vim to be defaulting to Replace mode upon opening
+            set t_u7 =
+            " Fix an error with Windows setting the wrong background color
+            set t_ut =""
+        endif
+    endif
+endfunction
 
 " Set cursor shape regardless of terminals
 " 1: blink block 2:block 3:blinking underline 4:underline 5:blinking vertical bar 6:vertical bar

@@ -66,25 +66,30 @@ nmap ga <Plug>(EasyAlign)
 nnoremap <F3> :UndotreeToggle<CR>
 
 """Vim-Airline"""
-" Use Meta (Alt) key to switch. Some terminals like WSL read Alt+1 as <Esc>1
-nmap <Esc>1 <Plug>AirlineSelectTab1
-nmap <Esc>2 <Plug>AirlineSelectTab2
-nmap <Esc>3 <Plug>AirlineSelectTab3
-nmap <Esc>4 <Plug>AirlineSelectTab4
-nmap <Esc>5 <Plug>AirlineSelectTab5
-nmap <Esc>6 <Plug>AirlineSelectTab6
-nmap <Esc>7 <Plug>AirlineSelectTab7
-nmap <Esc>8 <Plug>AirlineSelectTab8
-nmap <Esc>9 <Plug>AirlineSelectTab9
-
-" Uncomment these to use on a terminal that can read Meta (Alt) properly
-" nmap <M-1> <Plug>AirlineSelectTab1
-" nmap <M-2> <Plug>AirlineSelectTab2
-" nmap <M-3> <Plug>AirlineSelectTab3
-" nmap <A-4> <Plug>AirlineSelectTab4
-" nmap <A-5> <Plug>AirlineSelectTab5
-" nmap <A-6> <Plug>AirlineSelectTab6
-" nmap <A-7> <Plug>AirlineSelectTab7
-" nmap <A-8> <Plug>AirlineSelectTab8
-" nmap <A-9> <Plug>AirlineSelectTab9
-
+function! SetVimAirlineMapping()
+    if has("unix")
+        let lines = readfile("/proc/version")
+        if lines[0] =~ "Microsoft" || lines[0] =~ "microsoft"
+            " Use Meta(Alt) key to switch. WSL reads Alt+1 as <Esc>1 ("^[1")
+            nmap <Esc>1 <Plug>AirlineSelectTab1
+            nmap <Esc>2 <Plug>AirlineSelectTab2
+            nmap <Esc>3 <Plug>AirlineSelectTab3
+            nmap <Esc>4 <Plug>AirlineSelectTab4
+            nmap <Esc>5 <Plug>AirlineSelectTab5
+            nmap <Esc>6 <Plug>AirlineSelectTab6
+            nmap <Esc>7 <Plug>AirlineSelectTab7
+            nmap <Esc>8 <Plug>AirlineSelectTab8
+            nmap <Esc>9 <Plug>AirlineSelectTab9
+        else
+            nmap <M-1> <Plug>AirlineSelectTab1
+            nmap <M-2> <Plug>AirlineSelectTab2
+            nmap <M-3> <Plug>AirlineSelectTab3
+            nmap <A-4> <Plug>AirlineSelectTab4
+            nmap <A-5> <Plug>AirlineSelectTab5
+            nmap <A-6> <Plug>AirlineSelectTab6
+            nmap <A-7> <Plug>AirlineSelectTab7
+            nmap <A-8> <Plug>AirlineSelectTab8
+            nmap <A-9> <Plug>AirlineSelectTab9
+        endif
+    endif
+endfunction
