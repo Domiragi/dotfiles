@@ -3,6 +3,7 @@
 
 set nocompatible " Set VIM to be incompatible with VI for better QOL improvements by setting several options
 filetype plugin indent on
+set nowrap
 " Set text to wrap if filetype is text or MD
 autocmd FileType text setlocal wrap
 autocmd FileType markdown setlocal wrap
