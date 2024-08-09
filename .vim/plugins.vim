@@ -119,7 +119,7 @@ let g:startify_lists = [
 
 "To set bookmark, use the syntax: {'folder':'path/to/folder'}
 let g:startify_bookmarks          = []
-let g:startify_session_dir        = '~/.vim/session'
+let g:startify_session_dir        = '~/.vim/sessions'
 let g:startify_update_oldfiles    = 1
 let g:startify_files_number       = 15
 let g:startify_change_to_vcs_root = 1
