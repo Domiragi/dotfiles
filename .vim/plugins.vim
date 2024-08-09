@@ -77,6 +77,11 @@ let g:better_whitespace_guicolor    = "#d6801a"
 """indentLine"""
 let g:indentLine_char="|"
 
+"""EasyMotion"""
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase  = 1
+let g:EasyMotion_keys       = "qwertyuiopzxcvbnmasdfghjkl"
+
 """undotree"""
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_CustomUndotreeCmd  = 'topleft vertical 30 new'

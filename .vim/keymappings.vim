@@ -45,18 +45,20 @@ map <C-e> :NERDTreeToggle<CR>
 let g:better_whitespace_operator = ""
 
 """EasyMotion"""
-let g:EasyMotion_do_mapping=0 "Disable default mapping"
-"Might change to just <Leader> for easier pressing, this is in case it messes with compability with other plugins
-let g:EasyMotion_smartcase=1
-map  <Leader><Leader>  <Plug>(easymotion-prefix)
-nmap <Leader><Leader>s <Plug>(easymotion-sn)
-nmap <Leader><Leader>S <Plug>(easymotion-overwin-f2)
-map  <Leader><Leader>l <Plug>(easymotion-lineforward)
-map  <Leader><Leader>h <Plug>(easymotion-linebackward)
-map  <Leader><Leader>j <Plug>(easymotion-j)
-map  <Leader><Leader>k <Plug>(easymotion-k)
-map  <Leader><Leader>w <Plug>(easymotion-w)
-map  <Leader><Leader>b <Plug>(easymotion-b)
+nmap <Leader>s <Plug>(easymotion-sn)
+xmap <Leader>s <Plug>(easymotion-sn)
+nmap <Leader>l <Plug>(easymotion-sl)
+xmap <Leader>l <Plug>(easymotion-sl)
+nmap <Leader>j <Plug>(easymotion-j)
+xmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+xmap <Leader>k <Plug>(easymotion-k)
+nmap <Leader>w <Plug>(easymotion-w)
+xmap <Leader>w <Plug>(easymotion-w)
+nmap <Leader>b <Plug>(easymotion-b)
+xmap <Leader>b <Plug>(easymotion-b)
+nmap <Leader>e <Plug>(easymotion-e)
+xmap <Leader>e <Plug>(easymotion-e)
 
 """EasyAlign"""
 xmap ga <Plug>(EasyAlign)
