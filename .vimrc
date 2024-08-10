@@ -12,6 +12,8 @@ else
 endif
 
 " Setup for using WSL on Windows
-autocmd VIMEnter * call SetWindowsTerminal()
-autocmd VIMEnter * call SetVimAirlineMapping()
-
+augroup SetWindowsSettings
+    autocmd!
+    autocmd VIMEnter * call SetWindowsTerminal()
+    autocmd VIMEnter * call SetVimAirlineMapping()
+augroup END

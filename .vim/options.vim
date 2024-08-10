@@ -5,8 +5,11 @@ set nocompatible " Set VIM to be incompatible with VI for better QOL improvement
 filetype plugin indent on
 set nowrap
 " Set text to wrap if filetype is text or MD
-autocmd FileType text setlocal wrap
-autocmd FileType markdown setlocal wrap
+augroup SetFileType
+    autocmd!
+    autocmd FileType text setlocal wrap
+    autocmd FileType markdown setlocal wrap
+augroup END
 syntax on
 if has('mouse')
     set mouse       =a
