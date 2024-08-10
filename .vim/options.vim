@@ -13,6 +13,7 @@ if has('mouse')
     set mousemodel  =popup_setpos
 endif
 set autoindent
+set autoread
 set backspace       =indent,eol,start
 set belloff         =all
 set breakindent
