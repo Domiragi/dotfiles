@@ -3,20 +3,19 @@ packadd! matchit " Package for jumping to matching tags (if-endif, etc) using th
 
 "**********  Plugins  **********
 
-"Automatically install vim-plug
+" Automatically install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 func
-"Plugin will be downloaded under the specified directory
+" Plugin will be downloaded under the specified directory
 call plug#begin('~/.vim/plugged')
 
-"Declare plugins
-"YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
-"Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
+" Declare plugins
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree' |
    \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
@@ -27,18 +26,24 @@ Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
-"Theming
-Plug 'vim-airline/vim-airline-themes'
+" YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
+" Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
+" Theming
 Plug 'haishanh/night-owl.vim'
 
-"List ends here, after this call plugins will become visible to Vim
+" List ends here, after this call plugins will become visible to Vim
 call plug#end()
 
 "**********  Plugins Settings  **********
 
-"""YouCompleteMe"""
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_min_num_of_chars_for_completion=3
+""""vim-commentary"""
+let b:commentary_startofline = 1
+augroup VimCommentarySettings
+    autocmd!
+    " Template for adding/changing a filetype's commentstring
+    "autocmd FileType apache setlocal commentstring=#\ %s
+    autocmd FileType c,cpp setlocal commentstring=\/\/\ %s
+augroup END
 
 """"NerdTree"""
 " This plugin can be substituted for other lighter methods. It is used mainly
@@ -178,3 +183,8 @@ let g:airline#extensions#tabline#formatter       = 'unique_tail'
 
 "Stop the delay/pause when leaving insert mode
 let ttimeoutlen=10
+
+"""YouCompleteMe"""
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_min_num_of_chars_for_completion=3
+
