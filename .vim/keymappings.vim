@@ -39,7 +39,7 @@ cmap w!! w !sudo tee % >/dev/null
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """"NerdTree"""
-map <C-e> :NERDTreeToggle<CR>
+nnoremap <C-e> :NERDTreeToggle<CR>
 
 """"WhiteSpace"""
 let g:better_whitespace_operator = ""

@@ -17,8 +17,8 @@ call plug#begin('~/.vim/plugged')
 "YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
 "Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 Plug 'tpope/vim-fugitive'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdtree' |
+   \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
@@ -41,28 +41,58 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_min_num_of_chars_for_completion=3
 
 """"NerdTree"""
+" This plugin can be substituted for other lighter methods. It is used mainly
+" for providing a nice toggleable tree view of the filesystem.
 let NERDTreeShowHidden=1
-"Make sure that vim doesn't open files and other buffers on NERDTree window
-autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
-"NerdTree file highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg.' guifg='. a:guifg
-exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
+let NERDTreeIgnore=['\.swp[[file]]$', '\~$']
+let NERDTreeMouseMode = 2
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ call feedkeys(":quit\<CR>:\<BS>") |
+    \ endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ call feedkeys(":quit\<CR>:\<BS>") |
+    \ endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if winnr() == winnr('h') && bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
-call NERDTreeHighlightFile('jade','green','none','green','#151515')
-call NERDTreeHighlightFile('ini','yellow','none','yellow','#151515')
-call NERDTreeHighlightFile('md','blue','none','#3366FF','#151515')
-call NERDTreeHighlightFile('yml','yellow','none','yellow','#151515')
-call NERDTreeHighlightFile('config','yellow','none','yellow','#151515')
-call NERDTreeHighlightFile('conf','yellow','none','yellow','#151515')
-call NERDTreeHighlightFile('json','yellow','none','yellow','#151515')
-call NERDTreeHighlightFile('html','yellow','none','yellow','#151515')
-call NERDTreeHighlightFile('styl','cyan','none','cyan','#151515')
-call NERDTreeHighlightFile('css','cyan','none','cyan','#151515')
-call NERDTreeHighlightFile('coffee','red','none','red','#151515')
-call NERDTreeHighlightFile('js','red','none','#ffa500','#151515')
-call NERDTreeHighlightFile('php','magenta','none','#ff00ff','#151515')
+" Uncomment below code to add custom syntax highlight
+"NerdTree file highlighting
+"function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+"exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg.' guifg='. a:guifg
+"exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+"endfunction
+"call NERDTreeHighlightFile('jade','green','none','green','#151515')
+
+""""NerdTreeGit"""
+let g:NERDTreeGitStatusConcealBrackets = 1
+let g:NERDTreeGitStatusShowClean = 0
+" The next 2 features are quite heavy, disable if Vim gets slow
+let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
+let g:NERDTreeGitStatusShowIgnored = 1
+
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+   \ 'Modified'  : '',
+   \ 'Staged'    : '󰕒',
+   \ 'Untracked' : '󰫻',
+   \ 'Renamed'   : '',
+   \ 'Unmerged'  : '󰃻',
+   \ 'Deleted'   : '',
+   \ 'Dirty'     : '',
+   \ 'Ignored'   : '󰜺',
+   \ 'Clean'     : '',
+   \ 'Unknown'   : '?',
+   \ }
+
+let g:NERDTreeGitStatusHighlightingCustom = {
+   \ 'Staged'    : 'ctermfg=34  guifg=#00AF00',
+   \ 'Untracked' : 'ctermfg=160 guifg=#D70000',
+   \ 'Deleted'   : 'ctermfg=160 guifg=#D70000',
+   \ 'Ignored'   : 'ctermfg=243 guifg=#637777',
+   \ 'Clean'     : 'ctermfg=34  guifg=#00AF00',
+   \ }
 
 """AutoPairs"""
 let g:AutoPairsFlyMode = 1
@@ -131,7 +161,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_powerline_fonts    = 1
-let g:airline_symbols.dirty      = '*'
+let g:airline_symbols.dirty      = ''
 let g:airline_symbols.linenr     = ' |'
 let g:airline_symbols.colnr      = ' '
 let g:airline_symbols.maxlinenr  = '|'
