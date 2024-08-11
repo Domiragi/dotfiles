@@ -30,15 +30,21 @@ nnoremap J 10j
 nnoremap K 10k
 vnoremap J 10j
 vnoremap K 10k
+" Switch buffer
+nnoremap <Tab>   :bn<CR>
+nnoremap <S-Tab> :bp<CR>
 
 " Enable saving edited file that needs root privilage before opening
 cmap w!! w !sudo tee % >/dev/null
 
 " Enable shifting line up/down
-nnoremap <C-S-up> :m -2<CR>
-vnoremap <C-S-up> :m -2<CR>
+nnoremap <C-S-up>   :m -2<CR>
+vnoremap <C-S-up>   :m -2<CR>
 nnoremap <C-S-down> :m +1<CR>
 vnoremap <C-S-down> :m +1<CR>
+
+" Enable Shift+Tab
+inoremap <S-Tab> <C-d>
 
 "**********  Plugin mapping  **********
 

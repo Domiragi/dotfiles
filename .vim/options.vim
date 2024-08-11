@@ -25,9 +25,12 @@ set copyindent
 set cursorline
 set display         =lastline
 set encoding        =utf-8
+set encoding        =utf-8
 set expandtab " Expand tab into space
+set fileencoding    =utf-8
+set formatoptions  +=j
 set hidden
-set history         =300
+set history         =1000
 set hlsearch
 set incsearch
 set laststatus      =2
@@ -38,6 +41,7 @@ set modelines       =0
 set nojoinspaces
 set nostartofline
 set number
+set sessionoptions -=options
 set sidescroll      =1
 set shiftwidth      =4
 set showmatch " Highlight matching brace
@@ -49,7 +53,9 @@ set termguicolors
 set ttimeout
 set ttyfast
 set undolevels      =1000
+set viewoptions    -=options
 set wildignore     +=*.class,*.elf,*.jpg,*.jpeg,*.o,*.out,*.pdf,*.png,*.pyc,*.img
+set wildmenu
 set wrapscan
 
 "**********  Term-Options  **********
