@@ -26,6 +26,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
+Plug 'psliwka/vim-smoothie'
 " YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
 " Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 " Theming
