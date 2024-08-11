@@ -4,12 +4,13 @@ packadd! matchit " Package for jumping to matching tags (if-endif, etc) using th
 "**********  Plugins  **********
 
 " Automatically install vim-plug
+let need_to_install_plugins = 0
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    let need_to_install_plugins = 1
 endif
-func
 " Plugin will be downloaded under the specified directory
 call plug#begin('~/.vim/plugged')
 
@@ -27,16 +28,28 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie'
+
 " Enable copying to system clipboard on systems that supports ANSI OSC52
 " Not needed for NeoVim as it has this by default
 Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+
 " YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
 " Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
+
 " Theming
 Plug 'haishanh/night-owl.vim'
 
 " List ends here, after this call plugins will become visible to Vim
 call plug#end()
+
+" Automatically run PlugInstall on first startup
+if need_to_install_plugins == 1
+    echo "Installing plugins..."
+    silent! PlugInstall
+    echo "Done!"
+    q
+endif
+
 
 "**********  Plugins Settings  **********
 
