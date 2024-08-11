@@ -99,3 +99,6 @@ function! SetVimAirlineMapping()
         endif
     endif
 endfunction
+
+"""OSCYank"""
+vmap <Leader>c <Plug>OSCYankVisual

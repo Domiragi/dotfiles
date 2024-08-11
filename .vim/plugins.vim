@@ -27,6 +27,9 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie'
+" Enable copying to system clipboard on systems that supports ANSI OSC52
+" Not needed for NeoVim as it has this by default
+Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 " YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
 " Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 " Theming
