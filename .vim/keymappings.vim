@@ -5,37 +5,45 @@ inoremap kj <ESC>
 "Press Enter after search to remove hightlight
 nnoremap <silent> <CR> :nohlsearch <CR>
 
-"A small script to enable Metakey(Alt)
+" A small script to enable Metakey(Alt)
 for i in range(97,122)
     let c=nr2char(i)
     exec "map \e".c." <M-".c.">"
     exec "map! \e".c." <M-".c.">"
 endfor
-"Go to the beginning of a line
+
+" Go to the beginning of a line
 nnoremap <C-a> <ESC>^
 inoremap <C-a> <ESC>^
 vnoremap <C-a> ^
-"Go to the end of a line
+" Go to the end of a line
 nnoremap <M-a> <ESC>$
 inoremap <M-a> <ESC>$
 vnoremap <M-a> $
-"Switching panels
+" Switching panels
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
-"Faster scrolling
+" Faster scrolling
 nnoremap J 10j
 nnoremap K 10k
 vnoremap J 10j
 vnoremap K 10k
-"Enable saving edited file that needs root privilage before opening
+
+" Enable saving edited file that needs root privilage before opening
 cmap w!! w !sudo tee % >/dev/null
+
+" Enable shifting line up/down
+nnoremap <C-S-up> :m -2<CR>
+vnoremap <C-S-up> :m -2<CR>
+nnoremap <C-S-down> :m +1<CR>
+vnoremap <C-S-down> :m +1<CR>
 
 "**********  Plugin mapping  **********
 
 """YouCompleteMe"""
-"Let g:ycm_key_list_stop_completion=['<C-TAB>']
+" Let g:ycm_key_list_stop_completion=['<C-TAB>']
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """"NerdTree"""
