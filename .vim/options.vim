@@ -36,16 +36,16 @@ set incsearch
 set laststatus      =2
 set linebreak " Break line at word
 set list
-set listchars       =tab:\|\
+set listchars       =tab:\|\ 
 set modelines       =0
 set nojoinspaces
+set noshowmode
 set nostartofline
 set number
 set sessionoptions -=options
 set sidescroll      =1
 set shiftwidth      =4
 set showmatch " Highlight matching brace
-set showmode
 set startofline
 set softtabstop     =4
 set tags            ="./tags;,tags"
@@ -57,6 +57,7 @@ set viewoptions    -=options
 set wildignore     +=*.class,*.elf,*.jpg,*.jpeg,*.o,*.out,*.pdf,*.png,*.pyc,*.img
 set wildmenu
 set wrapscan
+
 
 "**********  Term-Options  **********
 

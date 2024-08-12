@@ -1,7 +1,8 @@
 " Source files
-source $HOME/.vim/plugins.vim
 source $HOME/.vim/options.vim
 source $HOME/.vim/keymappings.vim
+source $HOME/.vim/plugins.vim
+source $HOME/.vim/plugin_keymappings.vim
 source $HOME/.vim/functions.vim
 
 " Set Theme

@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
 
 " Declare plugins
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree' |
    \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ntpeters/vim-better-whitespace'
@@ -53,21 +53,23 @@ endif
 
 "**********  Plugins Settings  **********
 
-""""vim-commentary"""
-let b:commentary_startofline = 1
-augroup VimCommentarySettings
-    autocmd!
-    " Template for adding/changing a filetype's commentstring
-    "autocmd FileType apache setlocal commentstring=#\ %s
-    autocmd FileType c,cpp setlocal commentstring=\/\/\ %s
-augroup END
+"""NerdCommenter"""
+let NERDTreeCommentEmptyLines = 1
+let NERDCreateDefaultMappings = 0
+let NERDSpaceDelims = 1
+let NERDCompactSexyComs = 1
+" Set custom delimiters
+let g:NERDCustomDelimiters = {
+    \ 'ruby': { 'left': '#', 'leftAlt': 'FOO', 'rightAlt': 'BAR' },
+\ }
 
-""""NerdTree"""
+
+"""NerdTree"""
 " This plugin can be substituted for other lighter methods. It is used mainly
 " for providing a nice toggleable tree view of the filesystem.
-let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\.swp[[file]]$', '\~$']
-let NERDTreeMouseMode = 2
+let NERDTreeShowHidden = 1
+let NERDTreeIgnore     = ['\.swp[[file]]$', '\~$']
+let NERDTreeMouseMode  = 2
 augroup NerdTreeSettings
     autocmd!
     " Exit Vim if NERDTree is the only window remaining in the only tab.
@@ -91,12 +93,12 @@ augroup END
 "endfunction
 "call NERDTreeHighlightFile('jade','green','none','green','#151515')
 
-""""NerdTreeGit"""
-let g:NERDTreeGitStatusConcealBrackets = 1
-let g:NERDTreeGitStatusShowClean = 0
+"""NerdTreeGit"""
+let g:NERDTreeGitStatusConcealBrackets    = 1
+let g:NERDTreeGitStatusShowClean          = 0
 " The next 2 features are quite heavy, disable if Vim gets slow
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
-let g:NERDTreeGitStatusShowIgnored = 1
+let g:NERDTreeGitStatusShowIgnored        = 1
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
    \ 'Modified'  : '',
