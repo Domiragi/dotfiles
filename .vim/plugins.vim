@@ -28,6 +28,7 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie'
+Plug 'bullets-vim/bullets.vim'
 
 " Enable copying to system clipboard on systems that supports ANSI OSC52
 " Not needed for NeoVim as it has this by default
@@ -50,19 +51,17 @@ if need_to_install_plugins == 1
     q
 endif
 
-
 "**********  Plugins Settings  **********
 
 """NerdCommenter"""
 let NERDTreeCommentEmptyLines = 1
-let NERDCreateDefaultMappings = 0
 let NERDSpaceDelims = 1
 let NERDCompactSexyComs = 1
-" Set custom delimiters
-let g:NERDCustomDelimiters = {
-    \ 'ruby': { 'left': '#', 'leftAlt': 'FOO', 'rightAlt': 'BAR' },
-\ }
 
+" Set custom delimiters
+"let g:NERDCustomDelimiters = {
+    "\ 'ruby': { 'left': '#', 'leftAlt': 'FOO', 'rightAlt': 'BAR' },
+"\ }
 
 """NerdTree"""
 " This plugin can be substituted for other lighter methods. It is used mainly
@@ -135,7 +134,6 @@ let g:better_whitespace_guicolor    = "#d6801a"
 let g:indentLine_char="|"
 
 """EasyMotion"""
-let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase  = 1
 let g:EasyMotion_keys       = "qwertyuiopzxcvbnmasdfghjkl"
 
@@ -206,4 +204,3 @@ let ttimeoutlen=10
 """YouCompleteMe"""
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_min_num_of_chars_for_completion=3
-

@@ -1,6 +1,7 @@
 "**********  Plugin mapping  **********
 
 """NerdCommenter"""
+let NERDCreateDefaultMappings = 0
 vnoremap <Leader>cc <plug>NERDCommenterToggle
 vnoremap <Leader>cb <plug>NERDCommenterSexy
 vnoremap <Leader>cu <plug>NERDCommenterUncomment
@@ -12,6 +13,7 @@ nnoremap <C-e> :NERDTreeToggle<CR>
 let g:better_whitespace_operator = ""
 
 """EasyMotion"""
+let g:EasyMotion_do_mapping = 0
 nmap <Leader>s <Plug>(easymotion-sn)
 xmap <Leader>s <Plug>(easymotion-sn)
 nmap <Leader>S <Plug>(easymotion-sl)
@@ -74,3 +76,12 @@ vmap <Leader>yy <Plug>OSCYankVisual
 " Let g:ycm_key_list_stop_completion=['<C-TAB>']
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+"""BulletsVim"""
+let g:bullets_set_mappings = 1
+augroup MarkdownSettings
+    autocmd!
+    autocmd Filetype markdown inoremap <C-t> <C-o>:BulletDemote<CR>
+    autocmd Filetype markdown nnoremap >> :BulletDemote<CR>
+    autocmd Filetype markdown inoremap <C-d> <C-o>:BulletPromote<CR>
+    autocmd Filetype markdown nnoremap << :BulletPromote<CR>
+augroup END
