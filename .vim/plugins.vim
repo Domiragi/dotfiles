@@ -17,8 +17,8 @@ call plug#begin('~/.vim/plugged')
 " Declare plugins
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree' |
-   \ Plug 'Xuyuanp/nerdtree-git-plugin'
+ Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'} |
+     \ Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
@@ -28,11 +28,12 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie'
-Plug 'bullets-vim/bullets.vim'
+Plug 'bullets-vim/bullets.vim', {'for': 'text, markdown, gitcommit'}
+Plug 'dstein64/vim-startuptime'
 
 " Enable copying to system clipboard on systems that supports ANSI OSC52
 " Not needed for NeoVim as it has this by default
-Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+" Plug 'ojroques/vim-oscyank', {'branch': 'main'}
 
 " YouCompleteMe is a code-completion pluggin, which is heavy by default; to install uncomment and run :PlugInstall
 " Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
@@ -50,6 +51,7 @@ if need_to_install_plugins == 1
     echo "Done!"
     q
 endif
+
 
 "**********  Plugins Settings  **********
 
@@ -197,9 +199,6 @@ let g:airline#extensions#tabline#tab_nr_type     = 1
 let g:airline#extensions#tabline#buffers_label   = 'buf'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#formatter       = 'unique_tail'
-
-"Stop the delay/pause when leaving insert mode
-let ttimeoutlen=10
 
 """YouCompleteMe"""
 let g:ycm_autoclose_preview_window_after_completion=1
