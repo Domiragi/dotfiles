@@ -18,7 +18,7 @@ call plug#begin('~/.vim/plugged')
 " Declare plugins
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
- Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'} |
+Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'} |
      \ Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
@@ -29,7 +29,7 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie'
-Plug 'bullets-vim/bullets.vim', {'for': 'text, markdown, gitcommit'}
+Plug 'bullets-vim/bullets.vim', {'for': ['text', 'markdown', 'gitcommit']}
 Plug 'dstein64/vim-startuptime'
 Plug 'dense-analysis/ale'
 
