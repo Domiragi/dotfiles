@@ -42,7 +42,6 @@ set nojoinspaces
 set noshowmode
 set nostartofline
 set number
-set relativenumber
 set scrolloff       =5
 set sessionoptions -=options
 set sidescroll      =1
@@ -53,7 +52,7 @@ set softtabstop     =4
 set tags            ="./tags;,tags"
 set termguicolors
 set ttimeout
-set ttimeoutlen     =100
+set ttimeoutlen     =10
 set ttyfast
 set undolevels      =1000
 set viewoptions    -=options

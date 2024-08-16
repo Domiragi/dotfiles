@@ -1,5 +1,6 @@
 "**********  Package  **********
 packadd! matchit " Package for jumping to matching tags (if-endif, etc) using the '%' command
+packadd cfilter " Package for filtering Quickfix list and Location list
 
 "**********  Plugins  **********
 
@@ -30,6 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'psliwka/vim-smoothie'
 Plug 'bullets-vim/bullets.vim', {'for': 'text, markdown, gitcommit'}
 Plug 'dstein64/vim-startuptime'
+Plug 'dense-analysis/ale'
 
 " Enable copying to system clipboard on systems that supports ANSI OSC52
 " Not needed for NeoVim as it has this by default
@@ -54,6 +56,13 @@ endif
 
 
 "**********  Plugins Settings  **********
+
+" Set Theme
+if filereadable(expand("$HOME/.vim/plugged/night-owl.vim/colors/night-owl.vim"))
+    silent! colorscheme night-owl
+else
+    silent! colorscheme desert
+endif
 
 """NerdCommenter"""
 let NERDTreeCommentEmptyLines = 1
@@ -203,3 +212,56 @@ let g:airline#extensions#tabline#formatter       = 'unique_tail'
 """YouCompleteMe"""
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_min_num_of_chars_for_completion=3
+
+"""ALE"""
+" Define/enable linters for a filetype
+let g:ale_linters = {
+    \ 'c'      :['cc', 'clangformat', 'clangtidy'],
+    \ 'cpp'    :['cc', 'clangformat', 'clangtidy'],
+    \ 'cmake'  :['cmakelint', 'cmake-lint'],
+    \ 'make'   :['checkmake'],
+    \ 'python' :['ruff'],
+    \ 'sh'     :['shell', 'shellcheck'],
+    \ 'text'   :['cspell', 'write-good']
+    \}
+
+" Let one filetype to use the set of linters of another filetype
+" The user defined linter dictionary will be merged with the default
+" This sets and overrides the default value
+let g:ale_linter_aliases = {
+    \ 'markdown':['markdown', 'html', 'css']
+    \}
+
+let g:ale_enabled     = 1
+let g:ale_disable_lsp = 1
+let g:ale_echo_cursor = 1 " Echo error messages near the cursor"
+let g:ale_completion_enabled = 0
+let g:ale_virtualtext_cursor = 0
+" Disable for md file since I have no need to check for it yet
+let g:ale_pattern_options = {
+    \ '\.md$': {'ale_enabled': 0},
+    \}
+let g:ale_warn_about_trailing_blank_lines = 0
+let g:ale_warn_about_trailing_whitespace = 0
+
+" Syntax & highlight
+let g:ale_change_sign_column_color = 1
+let g:ale_sign_highlight_linenrs   = 1
+let g:ale_sign_error   = " ◉"
+let g:ale_sign_warning = " ◉"
+highlight ALEErrorSign               ctermfg=9   ctermbg=233 guifg=#C30500 guibg=#011627
+highlight ALEErrorSignLineNr         ctermfg=9   ctermbg=233 guifg=#C30500 guibg=#011627
+highlight ALEWarningSign             ctermfg=208 ctermbg=233 guifg=#FA7B20 guibg=#011627
+highlight ALEWarningSignLineNr       ctermfg=208 ctermbg=233 guifg=#FA7B20 guibg=#011627
+highlight ALESignColumnWithErrors    ctermfg=0   ctermbg=233 guifg=#A5A5A5 guibg=#011627
+highlight ALESignColumnWithoutErrors ctermfg=0   ctermbg=233 guifg=#A5A5A5 guibg=#011627
+
+" Set ALE to populate the loclist and/or quickfix list
+let g:ale_set_loclist  = 1
+let g:ale_set_quickfix = 0
+
+" Enable the next options to show error window at cursor
+" let g:ale_cursor_detail = 1
+" let g:ale_detail_to_floating_preview = 0
+" let g:ale_close_preview_on_insert = 1
+" let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']

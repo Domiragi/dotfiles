@@ -2,8 +2,7 @@
 
 let mapleader ="\<SPACE>"
 inoremap kj <ESC>
-"Press Enter after search to remove hightlight
-nnoremap <silent> <CR> :nohlsearch <CR>
+nnoremap <silent> <Leader>nh :nohlsearch <CR>
 
 " A small script to enable Metakey(Alt)
 for i in range(97,122)

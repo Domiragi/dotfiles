@@ -5,13 +5,6 @@ source $HOME/.vim/plugins.vim
 source $HOME/.vim/plugins_keymappings.vim
 source $HOME/.vim/functions.vim
 
-" Set Theme
-if filereadable(expand("$HOME/.vim/plugged/night-owl.vim/colors/night-owl.vim"))
-    silent! colorscheme night-owl
-else
-    silent! colorscheme desert
-endif
-
 " Setup for using WSL on Windows
 augroup SetWindowsSettings
     autocmd!
