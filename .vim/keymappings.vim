@@ -2,7 +2,7 @@
 
 let mapleader ="\<SPACE>"
 inoremap kj <ESC>
-nnoremap <silent> <Leader>nh :nohlsearch <CR>
+nnoremap <silent> <Leader>nl :nohlsearch <CR>
 
 " A small script to enable Metakey(Alt)
 for i in range(97,122)
@@ -32,7 +32,7 @@ vnoremap K 10k
 " Buffers
 nnoremap <Tab>   :bn<CR>
 nnoremap <S-Tab> :bp<CR>
-nnoremap <Leader>x :bd<CR>
+nnoremap <C-W>x  :bd<CR>
 
 " Enable saving edited file that needs root privilage before opening
 cmap w!! w !sudo tee % >/dev/null
