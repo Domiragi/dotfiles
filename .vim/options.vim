@@ -45,6 +45,7 @@ set number
 set scrolloff       =5
 set sessionoptions -=options
 set sidescroll      =1
+set signcolumn      =yes
 set shiftwidth      =4
 set showmatch " Highlight matching brace
 set startofline
