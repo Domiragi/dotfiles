@@ -9,6 +9,7 @@ augroup SetFileType
     autocmd!
     autocmd FileType text setlocal wrap
     autocmd FileType markdown setlocal wrap
+    autocmd BufNewFile,BufRead,BufEnter *.md syn match markdownIgnore "\w\@<=\w\@="
 augroup END
 syntax on
 if has('mouse')
@@ -24,7 +25,6 @@ set breakindentopt  =min:40 " Indent with at least 41 character width remaining
 set copyindent
 set cursorline
 set display         =lastline
-set encoding        =utf-8
 set encoding        =utf-8
 set expandtab " Expand tab into space
 set fileencoding    =utf-8
