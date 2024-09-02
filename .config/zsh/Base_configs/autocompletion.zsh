@@ -1,23 +1,35 @@
 #!/bin/zsh
 
 zstyle :compinstall filename '$ZDOTDIR/.zshrc'
-ZSH_COMPDUMP=$ZDOTDIR/.cache/zsh/zcompdump
+CACHE_DIR=${XDG_CACHE_HOME}/zsh
+[[ -d "$CACHE_DIR" ]] || mkdir -r "$CACHE_DIR"
+ZSH_COMPDUMP=${CACHE_DIR}/zcompdump
 # Allow insecure directory in fpath
 compinit_flag=(-u)
 # Specify zcompdump file
 compinit_flags+=(-d "$ZSH_COMPDUMP")
 autoload -Uz compinit
-compinit
+
+# Load and initialize the completion system ignoring insecure directories with a
+# cache time of 20 hours, so it should almost always regenerate the first time a
+# shell is opened each day.
+local zcompdump_cache=($ZSH_COMPDUMP(Nmh-20))
+if (( $#zcompdump_cache )); then
+    compinit -C $compinit_flags
+else
+    compinit $compinit_flags
+    touch "$ZSH_COMPDUMP"  # Ensure timestamp updates to reset the cache timeout.
+fi
 
 # Compile ZSH_COMPDUMP, if modified, in background to increase startup speed.
 {
-    if [[ -s "$ZSH_COMPDUMP" && (! -s "${ZSH_COMPDUMP}.zwc" || "$ZSH_COMPDUMP" -nt "${ZSH_COMPDUMP}.zwc") ]]; then
+    if [[ -s "$ZSH_COMPDUMP" && (! -s "${ZSH_COMPDUMP}}.zwc" || "$ZSH_COMPDUMP" -nt "${ZSH_COMPDUMP}.zwc") ]]; then
         if command mkdir "${ZSH_COMPDUMP}.zwc.lock" 2>/dev/null; then
             zcompile "$ZSH_COMPDUMP"
             command rmdir  "${ZSH_COMPDUMP}.zwc.lock" 2>/dev/null
         fi
     fi
-}
+} &!
 
 # Enable autocompleting hidden files/folders begin with "."
 _comp_options+=(globdots)
@@ -35,7 +47,7 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 
 # Use caching to make completion for commands such as dpkg and apt usable.
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh}/zcompcache"
+zstyle ':completion::complete:*' cache-path "${CACHE_DIR}/zcompcache"
 
 # Arrow key menu for completions
 zstyle ':completion:*:*:*:*:*' menu select
