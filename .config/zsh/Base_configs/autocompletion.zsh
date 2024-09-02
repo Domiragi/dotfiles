@@ -108,6 +108,7 @@ zstyle ':completion:*:man:*' menu yes select
 zstyle ':completion:*:*:mpv:*'    file-patterns '
     *.(mp3|MP3|m4a|M4A|wav|WAV|flac|FLAC|aac|AAC|ogg|OGG):audio:audio
     *.(hevc|HEVC|avi|AVI|mov|MOV|mkv|MKV|wmv|WMV|webm|WEBM|flv|FLV|mpv|MPV):video:video
+    *(-/):directories:directories
     '
 
 # SSH/SCP/RSYNC
