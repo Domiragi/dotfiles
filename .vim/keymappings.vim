@@ -12,8 +12,8 @@ for i in range(97,122)
 endfor
 
 " Go to the beginning of a line
-nnoremap <C-a> <ESC>^
-inoremap <C-a> <ESC>^
+nnoremap <C-a> <ESC>0
+inoremap <C-a> <ESC>0
 vnoremap <C-a> ^
 " Go to the end of a line
 nnoremap <M-a> <ESC>$
