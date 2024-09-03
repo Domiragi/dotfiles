@@ -8,10 +8,16 @@ autoload -Uz vcs_info
 autoload -U add-zle-hook-widget
 precmd() {
     vcs_info
-    print -P ''
+    # Uncomment the line belowif not using any prompt plugin
+    # print -P ''
+
+    # Comment the line below if not using any prompt plugin
+    # This makes the prompt stays at least 8 lines from the bottom
+    print $'\n\n\n\n\n\n\n\n\e[8A'
 }
 
 preexec() {
+    # Comment the line belowif not using any prompt plugin
     print -P ''
 }
 
@@ -87,9 +93,11 @@ add-zle-hook-widget line-pre-redraw updatePromptVimMode
 # %T: Time in 24h, %@: Time in 12h AM/PM, %D: date in YY-MM-DD, %W: date in MM/DD/YY
 
 # Change prompt to magenta if previously executed command was errored or canceled
-CUSTOM_PROMPT='%F{99}%~%f ${vcs_info_msg_0_}%F{$VIM_CURSOR_COLOR}❯❯❯%f '
-# # Make the prompt stay at least 8 lines from the bottom
-# # By printing 8 lines, moving the cursor up then printing the actual prompt
-PROMPT_PAD=$'%{\n\n\n\n\n\n\n\n\e[8A%}'
-PS1="$PROMPT_PAD$CUSTOM_PROMPT"
+local CUSTOM_PROMPT='%F{99}%~%f ${vcs_info_msg_0_}%F{$VIM_CURSOR_COLOR}❯❯❯%f '
+
+# Make the prompt stay at least 8 lines from the bottom
+# By printing 8 lines, moving the cursor up then printing the actual prompt
+local PROMPT_PAD=$'%{\n\n\n\n\n\n\n\n\e[8A%}'
+# Uncomment the line below if not using prompt plugin
+# PS1="$PROMPT_PAD$CUSTOM_PROMPT"
 
