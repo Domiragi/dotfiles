@@ -33,5 +33,17 @@ source ${ZDOTDIR:-~}/antidote/antidote.zsh
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
 
+###################
+# powerlevel10k
+###################
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+###################
+# fast-syntax-hightlight
+###################
+
+# Need to reset color for the completion menu because fast-syntax-highlight overrides this
+[[ -n $LS_COLORS ]] && zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+

@@ -1,8 +1,12 @@
 ###################################
-# Prompt
+# Shell
 ###################################
 
+# Prompt
 romkatv/powerlevel10k
+
+# Syntax hightlight
+zdharma-continuum/fast-syntax-highlighting
 
 ###################################
 # Functionality
