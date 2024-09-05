@@ -17,3 +17,7 @@ Tarrasch/zsh-bd
 
 # List all aliases
 ohmyzsh/ohmyzsh path:plugins/aliases
+
+# Extract all types of extensions
+ohmyzsh/ohmyzsh path:plugins/extract
+
