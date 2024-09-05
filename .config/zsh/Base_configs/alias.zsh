@@ -15,6 +15,7 @@ alias fgrep='fgrep --colour=auto'
 [[ -n "$commands[tree]" ]] && alias lt="tree -C"
 alias df='df -h'
 alias du='du -h'
+alias du1='du -d1' # Show disk usage of the files and folders in the current directory without recursion
 alias free='free -h'
 alias less='less -i'
 alias np='nano -w PKGBUILD'
