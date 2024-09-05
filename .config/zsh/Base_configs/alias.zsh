@@ -28,3 +28,11 @@ alias chgrp='chgrp --preserve-root'
 alias clear='clear -x'
 # Print a simple colormap.
 alias colormap='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+"\n"}; done'
+
+# YAY aliases
+alias yayi="yay -S"    # Install package
+alias yayil="yay -U"   # Install package from local file
+alias yayls="yay -Qe"  # List installed packages
+alias yayrm="yay -Rns" # Remove packaage with its settings and uneeded dependencies
+alias yaclr="yay -Scc" # Remove all old and unused cached packages
+alias yayinf="yay -Si" # Display info about a package in the repositories
