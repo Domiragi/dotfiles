@@ -14,3 +14,6 @@ zdharma-continuum/fast-syntax-highlighting
 
 # Quickly jumping through parent directory
 Tarrasch/zsh-bd
+
+# List all aliases
+ohmyzsh/ohmyzsh path:plugins/aliases
