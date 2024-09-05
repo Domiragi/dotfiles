@@ -9,7 +9,7 @@
 # overwritten with their default values
 
 fastfile_dir="${XDG_CACHE_HOME}/.fastfile"
-fastfile_var_prefix="§"
+fastfile_var_prefix="@"
 
 ###########################
 # Impl
