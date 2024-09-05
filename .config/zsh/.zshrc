@@ -47,3 +47,8 @@ antidote load
 # Need to reset color for the completion menu because fast-syntax-highlight overrides this
 [[ -n $LS_COLORS ]] && zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+###################
+# fastfile
+###################
+
+source ${ZDOTDIR}/custom_plugins/fastfile.plugin.zsh
