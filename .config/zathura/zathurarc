@@ -1,0 +1,18 @@
+# Mapping
+map s scroll up
+map S navigate previous
+map d scroll down
+map D navigate next
+map gt goto
+map ff display_link
+map rr reload
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+map v toggle_page_mode
+map w adjust_window best-fit
+map W adjust_window width
+
+# Options
+set double-click-follow false
+set pages-per-row 2
+set window-title-basename true
