@@ -28,7 +28,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
-Plug 'psliwka/vim-smoothie'
+Plug 'tpope/vim-surround'
 Plug 'bullets-vim/bullets.vim', {'for': ['text', 'markdown', 'gitcommit']}
 Plug 'dstein64/vim-startuptime'
 Plug 'dense-analysis/ale'
