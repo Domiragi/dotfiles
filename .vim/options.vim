@@ -59,6 +59,7 @@ set undolevels      =1000
 set viewoptions    -=options
 set wildignore     +=*.class,*.elf,*.jpg,*.jpeg,*.o,*.out,*.pdf,*.png,*.pyc,*.img
 set wildmenu
+set wildmode        =list:full,full
 set wrapscan
 
 
