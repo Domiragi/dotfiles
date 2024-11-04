@@ -29,6 +29,7 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
 Plug 'bullets-vim/bullets.vim', {'for': ['text', 'markdown', 'gitcommit']}
 Plug 'dstein64/vim-startuptime'
 Plug 'dense-analysis/ale'
