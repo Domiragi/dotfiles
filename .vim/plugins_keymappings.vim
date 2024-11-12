@@ -2,8 +2,8 @@
 
 """NerdCommenter"""
 let NERDCreateDefaultMappings = 0
-vnoremap <Leader>cc <plug>NERDCommenterToggle
-vnoremap <Leader>cb <plug>NERDCommenterSexy
+vnoremap <Leader>ct <plug>NERDCommenterToggle
+vnoremap <Leader>cs <plug>NERDCommenterSexy
 vnoremap <Leader>cu <plug>NERDCommenterUncomment
 
 """NerdTree"""
