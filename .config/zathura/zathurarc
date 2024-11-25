@@ -14,5 +14,6 @@ map W adjust_window width
 
 # Options
 set double-click-follow false
+set first-page-column 1:1
 set pages-per-row 2
 set window-title-basename true

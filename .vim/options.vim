@@ -7,8 +7,7 @@ set nowrap
 " Set text to wrap if filetype is text or MD
 augroup SetFileType
     autocmd!
-    autocmd FileType text setlocal wrap
-    autocmd FileType markdown setlocal wrap
+    autocmd FileType text,markdown,tex setlocal wrap
     autocmd BufNewFile,BufRead,BufEnter *.md syn match markdownIgnore "\w\@<=\w\@="
 augroup END
 syntax on
@@ -58,8 +57,8 @@ set ttyfast
 set undolevels      =1000
 set viewoptions    -=options
 set wildignore     +=*.class,*.elf,*.jpg,*.jpeg,*.o,*.out,*.pdf,*.png,*.pyc,*.img
-" set wildmenu
-set wildmode        =list:full,full
+set nowildmenu
+set wildmode        =list,full
 set wrapscan
 
 

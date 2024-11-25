@@ -33,6 +33,7 @@ Plug 'wellle/targets.vim'
 Plug 'bullets-vim/bullets.vim', {'for': ['text', 'markdown', 'gitcommit']}
 Plug 'dstein64/vim-startuptime'
 Plug 'dense-analysis/ale'
+Plug 'lervag/vimtex'
 
 " Enable copying to system clipboard on systems that supports ANSI OSC52
 " Not needed for NeoVim as it has this by default
@@ -112,25 +113,25 @@ let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let g:NERDTreeGitStatusShowIgnored        = 1
 
 let g:NERDTreeGitStatusIndicatorMapCustom = {
-   \ 'Modified'  : '',
-   \ 'Staged'    : '󰕒',
-   \ 'Untracked' : '󰫻',
-   \ 'Renamed'   : '',
-   \ 'Unmerged'  : '󰃻',
-   \ 'Deleted'   : '',
-   \ 'Dirty'     : '',
-   \ 'Ignored'   : '󰜺',
-   \ 'Clean'     : '',
-   \ 'Unknown'   : '?',
-   \ }
+    \ 'Modified'  : '',
+    \ 'Staged'    : '󰕒',
+    \ 'Untracked' : '󰫻',
+    \ 'Renamed'   : '',
+    \ 'Unmerged'  : '󰃻',
+    \ 'Deleted'   : '',
+    \ 'Dirty'     : '',
+    \ 'Ignored'   : '󰜺',
+    \ 'Clean'     : '',
+    \ 'Unknown'   : '?',
+\ }
 
 let g:NERDTreeGitStatusHighlightingCustom = {
-   \ 'Staged'    : 'ctermfg=34  guifg=#00AF00',
-   \ 'Untracked' : 'ctermfg=160 guifg=#D70000',
-   \ 'Deleted'   : 'ctermfg=160 guifg=#D70000',
-   \ 'Ignored'   : 'ctermfg=243 guifg=#637777',
-   \ 'Clean'     : 'ctermfg=34  guifg=#00AF00',
-   \ }
+    \ 'Staged'    : 'ctermfg=34  guifg=#00AF00',
+    \ 'Untracked' : 'ctermfg=160 guifg=#D70000',
+    \ 'Deleted'   : 'ctermfg=160 guifg=#D70000',
+    \ 'Ignored'   : 'ctermfg=243 guifg=#637777',
+    \ 'Clean'     : 'ctermfg=34  guifg=#00AF00',
+\ }
 
 """AutoPairs"""
 let g:AutoPairsFlyMode = 1
@@ -163,26 +164,26 @@ endif
 
 """vim-startify"""
 let g:ascii= [
-    \'░░░░░░░█▐▓▓░████▄▄▄█▀▄▓▓▓▌█ very cool',
-    \'░░░░░▄█▌▀▄▓▓▄▄▄▄▀▀▀▄▓▓▓▓▓▌█',
-    \'░░░▄█▀▀▄▓█▓▓▓▓▓▓▓▓▓▓▓▓▀░▓▌█',
-    \'░░█▀▄▓▓▓███▓▓▓███▓▓▓▄░░▄▓▐█▌ such awesome',
-    \'░█▌▓▓▓▀▀▓▓▓▓███▓▓▓▓▓▓▓▄▀▓▓▐█',
-    \'▐█▐██▐░▄▓▓▓▓▓▀▄░▀▓▓▓▓▓▓▓▓▓▌█▌',
-    \'█▌███▓▓▓▓▓▓▓▓▐░░▄▓▓███▓▓▓▄▀▐█ much amazing',
-    \'█▐█▓▀░░▀▓▓▓▓▓▓▓▓▓██████▓▓▓▓▐█',
-    \'▌▓▄▌▀░▀░▐▀█▄▓▓██████████▓▓▓▌█▌',
-    \'▌▓▓▓▄▄▀▀▓▓▓▀▓▓▓▓▓▓▓▓█▓█▓█▓▓▌█▌',
-    \'█▐▓▓▓▓▓▓▄▄▄▓▓▓▓▓▓█▓█▓█▓█▓▓▓▐█ WoW'
-    \]
+    \ '░░░░░░░█▐▓▓░████▄▄▄█▀▄▓▓▓▌█ very cool',
+    \ '░░░░░▄█▌▀▄▓▓▄▄▄▄▀▀▀▄▓▓▓▓▓▌█',
+    \ '░░░▄█▀▀▄▓█▓▓▓▓▓▓▓▓▓▓▓▓▀░▓▌█',
+    \ '░░█▀▄▓▓▓███▓▓▓███▓▓▓▄░░▄▓▐█▌ such awesome',
+    \ '░█▌▓▓▓▀▀▓▓▓▓███▓▓▓▓▓▓▓▄▀▓▓▐█',
+    \ '▐█▐██▐░▄▓▓▓▓▓▀▄░▀▓▓▓▓▓▓▓▓▓▌█▌',
+    \ '█▌███▓▓▓▓▓▓▓▓▐░░▄▓▓███▓▓▓▄▀▐█ much amazing',
+    \ '█▐█▓▀░░▀▓▓▓▓▓▓▓▓▓██████▓▓▓▓▐█',
+    \ '▌▓▄▌▀░▀░▐▀█▄▓▓██████████▓▓▓▌█▌',
+    \ '▌▓▓▓▄▄▀▀▓▓▓▀▓▓▓▓▓▓▓▓█▓█▓█▓▓▌█▌',
+    \ '█▐▓▓▓▓▓▓▄▄▄▓▓▓▓▓▓█▓█▓█▓█▓▓▓▐█ WoW'
+\ ]
 let g:startify_custom_header = startify#pad(g:ascii)
 let g:startify_lists = [
-            \{ 'type': 'files',     'header': ['   Files']            },
-            \{ 'type': 'dir',       'header': ['   Folders '. getcwd()] },
-            \{ 'type': 'sessions',  'header': ['   Sessions']       },
-            \{ 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-            \{ 'type': 'commands',  'header': ['   Commands']       },
-            \]
+            \ { 'type': 'files',     'header': ['   Files']            },
+            \ { 'type': 'dir',       'header': ['   Folders '. getcwd()] },
+            \ { 'type': 'sessions',  'header': ['   Sessions']       },
+            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+            \ { 'type': 'commands',  'header': ['   Commands']       },
+\ ]
 
 "To set bookmark, use the syntax: {'folder':'path/to/folder'}
 let g:startify_bookmarks          = []
@@ -224,14 +225,14 @@ let g:ale_linters = {
     \ 'python' :['ruff'],
     \ 'sh'     :['shell', 'shellcheck'],
     \ 'text'   :['cspell', 'write-good']
-    \}
+\ }
 
 " Let one filetype to use the set of linters of another filetype
 " The user defined linter dictionary will be merged with the default
 " This sets and overrides the default value
 let g:ale_linter_aliases = {
     \ 'markdown':['markdown', 'html', 'css']
-    \}
+\ }
 
 let g:ale_enabled     = 1
 let g:ale_disable_lsp = 1
@@ -241,7 +242,7 @@ let g:ale_virtualtext_cursor = 0
 " Disable for md file since I have no need to check for it yet
 let g:ale_pattern_options = {
     \ '\.md$': {'ale_enabled': 0},
-    \}
+\}
 let g:ale_warn_about_trailing_blank_lines = 0
 let g:ale_warn_about_trailing_whitespace = 0
 
@@ -266,3 +267,25 @@ let g:ale_set_quickfix = 0
 " let g:ale_detail_to_floating_preview = 0
 " let g:ale_close_preview_on_insert = 1
 " let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
+
+"""VimTex"""
+" Use lualatex when there is a system font, not when on WSL
+" let g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
+let g:vimtex_syntax_conceal_disable = 1
+let g:vimtex_indent_on_ampersands = 0
+let g:vimtex_quickfix_mode = 2
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_toc_config = {
+    \ 'fold_enable': 1,
+    \ 'hide_line_numbers': 0,
+    \ 'indent_levels': 1,
+    \ 'layer_status': {
+        \ 'content': 1,
+        \ 'label': 1,
+        \ 'todo': 1,
+        \ 'include': 0
+    \ },
+    \ 'tocdepth': 5,
+    \ 'show_help': 0,
+\ }
+let g:vimtex_view_method = 'zathura'

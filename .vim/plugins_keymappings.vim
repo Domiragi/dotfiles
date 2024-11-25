@@ -91,3 +91,16 @@ nnoremap <silent> <Leader>en <Plug>(ale_next_wrap)
 nnoremap <silent> <Leader>ev :ALEPopulateQuickfix<CR>
 " Show full detail of error
 nnoremap <silent> <Leader>ed <Plug>(ale_detail)
+
+"""VimTex"""
+augroup LatexSettings
+    autocmd!
+    "Italic
+    autocmd Filetype tex nnoremap <C-i> <Plug>(vimtex-cmd-create)textit<CR>
+    autocmd Filetype tex inoremap <C-i> <Esc><Plug>(vimtex-cmd-create)textit<CR>i
+    autocmd Filetype tex vnoremap <C-i> <Plug>(vimtex-cmd-create)textit<CR>
+    "Bold
+    autocmd Filetype tex nnoremap <C-b> <Plug>(vimtex-cmd-create)textbf<CR>
+    autocmd Filetype tex inoremap <C-b> <Esc><Plug>(vimtex-cmd-create)textbf<CR>i
+    autocmd Filetype tex vnoremap <C-b> <Plug>(vimtex-cmd-create)textbf<CR>
+augroup END
