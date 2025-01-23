@@ -1,8 +1,13 @@
-"**********  Package  **********
+"*******************************
+"*           Package           *
+"*******************************
+
 packadd! matchit " Package for jumping to matching tags (if-endif, etc) using the '%' command
 packadd cfilter " Package for filtering Quickfix list and Location list
 
-"**********  Plugins  **********
+"*******************************
+"*           Plugins           *
+"*******************************
 
 " Automatically install vim-plug
 let need_to_install_plugins = 0
@@ -56,8 +61,9 @@ if need_to_install_plugins == 1
     q
 endif
 
-
-"**********  Plugins Settings  **********
+"*******************************
+"*           Settings          *
+"*******************************
 
 " Set Theme
 if filereadable(expand("$HOME/.vim/plugged/night-owl.vim/colors/night-owl.vim"))
@@ -66,7 +72,8 @@ else
     silent! colorscheme desert
 endif
 
-"""NerdCommenter"""
+"------------NerdCommenter------------"
+
 let NERDTreeCommentEmptyLines = 1
 let NERDSpaceDelims = 1
 let NERDCompactSexyComs = 1
@@ -76,7 +83,8 @@ let NERDCompactSexyComs = 1
     "\ 'ruby': { 'left': '#', 'leftAlt': 'FOO', 'rightAlt': 'BAR' },
 "\ }
 
-"""NerdTree"""
+"---------------NerdTree--------------"
+
 " This plugin can be substituted for other lighter methods. It is used mainly
 " for providing a nice toggleable tree view of the filesystem.
 let NERDTreeShowHidden = 1
@@ -105,7 +113,8 @@ augroup END
 "endfunction
 "call NERDTreeHighlightFile('jade','green','none','green','#151515')
 
-"""NerdTreeGit"""
+"-------------NerdTreeGit-------------"
+
 let g:NERDTreeGitStatusConcealBrackets    = 1
 let g:NERDTreeGitStatusShowClean          = 0
 " The next 2 features are quite heavy, disable if Vim gets slow
@@ -133,24 +142,29 @@ let g:NERDTreeGitStatusHighlightingCustom = {
     \ 'Clean'     : 'ctermfg=34  guifg=#00AF00',
 \ }
 
-"""AutoPairs"""
+"--------------AutoPairs--------------"
+
 let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutToggle = ""
 
-"""vim-better-whitespace"""
+"--------vim-better-whitespace--------"
+
 let g:better_whitespace_filetypes_blacklist = ['diff', 'git', 'gitcommit', 'unite', 'qf', 'help', 'fugitive']
 let g:show_spaces_that_precede_tabs = 1
 let g:better_whitespace_ctermcolor  = "214"
 let g:better_whitespace_guicolor    = "#d6801a"
 
-"""indentLine"""
+"--------------IndentLine-------------"
+
 let g:indentLine_char="|"
 
-"""EasyMotion"""
+"--------------EasyMotion-------------"
+
 let g:EasyMotion_smartcase  = 1
 let g:EasyMotion_keys       = "qwertyuiopzxcvbnmasdfghjkl"
 
-"""undotree"""
+"-------------UndoTree----------------"
+
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_CustomUndotreeCmd  = 'topleft vertical 30 new'
 let g:undotree_CustomDiffpanelCmd = 'botright 10 new'
@@ -162,7 +176,8 @@ if has ("persistent_undo")
     set undofile
 endif
 
-"""vim-startify"""
+"-------------vim-startify------------"
+
 let g:ascii= [
     \ '░░░░░░░█▐▓▓░████▄▄▄█▀▄▓▓▓▌█ very cool',
     \ '░░░░░▄█▌▀▄▓▓▄▄▄▄▀▀▀▄▓▓▓▓▓▌█',
@@ -193,7 +208,8 @@ let g:startify_files_number       = 15
 let g:startify_change_to_vcs_root = 1
 let g:startify_session_sort       = 1
 
-"""Vim-airline"""
+"-------------Vim-airline-------------"
+
 let g:airline_theme='vndrx'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -211,11 +227,13 @@ let g:airline#extensions#tabline#buffers_label   = 'buf'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#formatter       = 'unique_tail'
 
-"""YouCompleteMe"""
+"------------YouCompleteMe------------"
+
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_min_num_of_chars_for_completion=3
 
-"""ALE"""
+"------------------ALE----------------"
+
 " Define/enable linters for a filetype
 let g:ale_linters = {
     \ 'c'      :['cc', 'clangformat', 'clangtidy'],
@@ -268,7 +286,8 @@ let g:ale_set_quickfix = 0
 " let g:ale_close_preview_on_insert = 1
 " let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
 
-"""VimTex"""
+"-------------VimTex------------------"
+
 " Use lualatex when there is a system font, not when on WSL
 " let g:vimtex_compiler_latexmk_engines = {'_': '-lualatex'}
 let g:vimtex_syntax_conceal_disable = 1

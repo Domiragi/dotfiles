@@ -1,18 +1,20 @@
-"**********  Plugin mapping  **********
+"------------NerdCommenter------------"
 
-"""NerdCommenter"""
 let NERDCreateDefaultMappings = 0
 vnoremap <Leader>ct <plug>NERDCommenterToggle
 vnoremap <Leader>cs <plug>NERDCommenterSexy
 vnoremap <Leader>cu <plug>NERDCommenterUncomment
 
-"""NerdTree"""
+"---------------NerdTree--------------"
+
 nnoremap <C-e> :NERDTreeToggle<CR>
 
-"""WhiteSpace"""
+"--------vim-better-whitespace--------"
+
 let g:better_whitespace_operator = ""
 
-"""EasyMotion"""
+"--------------EasyMotion-------------"
+
 let g:EasyMotion_do_mapping = 0
 nmap <silent> <Leader>s <Plug>(easymotion-sn)
 xmap <silent> <Leader>s <Plug>(easymotion-sn)
@@ -31,14 +33,17 @@ xmap <silent> <Leader>w <Plug>(easymotion-w)
 nmap <silent> <Leader>b <Plug>(easymotion-b)
 xmap <silent> <Leader>b <Plug>(easymotion-b)
 
-"""EasyAlign"""
+"--------------EasyAlign-------------"
+
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-"""UndoTree"""
+"-------------UndoTree----------------"
+
 nnoremap <F3> :UndotreeToggle<CR>
 
-"""Vim-Airline"""
+"-------------Vim-airline-------------"
+
 function! SetVimAirlineMapping()
     if has("unix")
         let lines = readfile("/proc/version")
@@ -67,14 +72,17 @@ function! SetVimAirlineMapping()
     endif
 endfunction
 
-"""OSCYank"""
+"---------------OSCYank---------------"
+
 vmap <Leader>yy <Plug>OSCYankVisual
 
-"""YouCompleteMe"""
+"------------YouCompleteMe------------"
+
 " Let g:ycm_key_list_stop_completion=['<C-TAB>']
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-"""BulletsVim"""
+"--------------BulletsVim-------------"
+
 let g:bullets_set_mappings = 1
 augroup MarkdownSettings
     autocmd!
@@ -84,7 +92,8 @@ augroup MarkdownSettings
     autocmd Filetype markdown nnoremap << :BulletPromote<CR>
 augroup END
 
-"""ALE"""
+"------------------ALE----------------"
+
 nnoremap <silent> <Leader>ep <Plug>(ale_previous_wrap)
 nnoremap <silent> <Leader>en <Plug>(ale_next_wrap)
 " Create a list of error for all buffers
@@ -92,7 +101,8 @@ nnoremap <silent> <Leader>ev :ALEPopulateQuickfix<CR>
 " Show full detail of error
 nnoremap <silent> <Leader>ed <Plug>(ale_detail)
 
-"""VimTex"""
+"-------------VimTex------------------"
+
 " augroup LatexSettings
     " autocmd!
     " "Italic
