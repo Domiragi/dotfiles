@@ -289,3 +289,9 @@ let g:vimtex_toc_config = {
     \ 'show_help': 0,
 \ }
 let g:vimtex_view_method = 'zathura'
+
+" Cleanup auxilary files on quit
+augroup vimtex_event_1
+    autocmd!
+    autocmd User VimtexEventQuit     VimtexClean
+augroup END
