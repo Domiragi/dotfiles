@@ -9,6 +9,7 @@
 \usepackage{xfrac}
 \usepackage[makeroom]{cancel}
 \usepackage{mathtools}
+\usepackage{indentfirst}
 \usepackage{bookmark}
 \usepackage{enumitem}
 \usepackage{hyperref,theoremref}
@@ -383,7 +384,7 @@
 %================================
 
 \newtcbtheorem[number within=section]{Definition}{Definition}{enhanced,
-	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
+	before skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
 	attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight}, varwidth boxed title*=-3cm,
 	boxed title style={frame code={
 					\path[fill=tcbcolback]
@@ -639,7 +640,7 @@
 \newcommand{\dfn}[2]{\begin{Definition}[colbacktitle=red!75!black]{#1}{}#2\end{Definition}}
 \newcommand{\dfnc}[2]{\begin{definition}[colbacktitle=red!75!black]{#1}{}#2\end{definition}}
 \newcommand{\qs}[2]{\begin{question}{#1}{}#2\end{question}}
-\newcommand{\pf}[2]{\begin{myproof}[#1]#2\end{myproof}}
+\newcommand{\pf}[1]{\begin{myproof}#1\end{myproof}}
 \newcommand{\nt}[1]{\begin{note}#1\end{note}}
 \newcommand{\eqt}[1]{\begin{equation}#1\end{equation}}
 \newcommand{\sol}{\setlength{\parindent}{0cm}\textbf{\textit{Solution:}}\setlength{\parindent}{1cm} }

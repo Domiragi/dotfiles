@@ -1,0 +1,122 @@
+\documentclass[a4paper]{report}
+
+\input{preamble}
+\begin{document}
+
+\begin{verbatim}
+\dfn{Title}{Content}
+\end{verbatim}
+\dfn{Title}{Content}
+
+\begin{verbatim}
+\dfnc{}{}
+\end{verbatim}
+\dfnc{}{}
+
+\begin{verbatim}
+\qs{}{}
+\end{verbatim}
+\qs{}{}
+
+\begin{verbatim}
+\nt{}
+\end{verbatim}
+\nt{}
+
+\begin{verbatim}
+\clm{}{}
+\end{verbatim}
+\clm{}{}
+
+\begin{verbatim}
+\ex{}{}
+\end{verbatim}
+\ex{}{}
+
+\begin{verbatim}
+\thm{}{}
+\end{verbatim}
+\thm{}{}
+
+\begin{verbatim}
+\pf{}
+\end{verbatim}
+\pf{}
+
+\begin{verbatim}
+\cor{}{}
+\end{verbatim}
+\cor{}{}
+
+\begin{verbatim}
+\mlemma{}{}
+\end{verbatim}
+\mlemma{}{}
+
+\begin{verbatim}
+\mprop{}{}
+\end{verbatim}
+\mprop{}{}
+
+\subsection*{Algorithm}
+\begin{verbatim}
+\begin{algorithm}[H]
+\caption{Example}
+\KwIn{This is some input}
+\KwOut{This is some output}
+\SetAlgoLined
+\SetNoFillComment
+\tcc{This is a comment}
+\vspace{3mm}
+some code here\;
+$x \leftarrow 0$\;
+$y \leftarrow 0$\;
+\uIf{$ x > 5$} {
+    x is greater than 5 \tcp*{This is also a comment}
+}
+\Else {
+    x is less than or equal to 5\;
+}
+\ForEach{y in 0..5} {
+    $y \leftarrow y + 1$\;
+}
+\For{$y$ in $0..5$} {
+    $y \leftarrow y - 1$\;
+}
+\While{$x > 5$} {
+    $x \leftarrow x - 1$\;
+}
+\Return Return something here\;
+\end{algorithm}
+\end{verbatim}
+\begin{algorithm}[H]
+\caption{Example}
+\KwIn{This is some input}
+\KwOut{This is some output}
+\SetAlgoLined
+\SetNoFillComment
+\tcc{This is a comment}
+\vspace{3mm}
+some code here\;
+$x \leftarrow 0$\;
+$y \leftarrow 0$\;
+\uIf{$ x > 5$} {
+    x is greater than 5 \tcp*{This is also a comment}
+}
+\Else {
+    x is less than or equal to 5\;
+}
+\ForEach{y in 0..5} {
+    $y \leftarrow y + 1$\;
+}
+\For{$y$ in $0..5$} {
+    $y \leftarrow y - 1$\;
+}
+\While{$x > 5$} {
+    $x \leftarrow x - 1$\;
+}
+\Return Return something here\;
+\end{algorithm}
+
+
+\end{document}
