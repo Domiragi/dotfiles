@@ -50,3 +50,6 @@ command LLE :call s:LocListErrorFilter()
 command QFI :call s:QFListInfoFilter()
 command QFW :call s:QFListWarningFilter()
 command QFE :call s:QFListErrorFilter()
+
+" Open the current tex file as pdf with Zathura
+command PDF execute ":silent !zathura '%:r'.pdf &" | execute ":redraw!"
