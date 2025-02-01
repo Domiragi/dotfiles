@@ -1,5 +1,3 @@
-"**********  Key mapping  **********
-
 let mapleader ="\<SPACE>"
 inoremap kj <ESC>
 nnoremap <silent> <Leader>nl :nohlsearch <CR>

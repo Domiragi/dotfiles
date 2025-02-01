@@ -1,0 +1,82 @@
+###################### Environment/Command/Delimiter ######################
+
+snippet bge "begin-end" bA
+\begin{$1}
+   $0
+\end{$1}
+endsnippet
+
+snippet ctr "chapter" bA
+\chapter{$1}
+endsnippet
+
+snippet ctrs "chapter - unnumbered" bA
+\chapter*{$1}
+endsnippet
+
+snippet stn "section" bA
+\section{$1}
+endsnippet
+
+snippet stns "section - unnumbered" bA
+\section*{$1}
+endsnippet
+
+snippet sstn "subsection" bA
+\subsection{$1}
+endsnippet
+
+snippet sstns "subsection - unnumbered" bA
+\chapter*{$1}
+endsnippet
+
+snippet ssstn "subsubsection" bA
+\subsubsection{$1}
+endsnippet
+
+snippet ssstns "subsubsection - unnumbered" bA
+\chapter*{$1}
+endsnippet
+
+###################### Seperator ######################
+
+snippet chapsep "Chapter seperator (80)" bA
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+endsnippet
+
+snippet secsep "Section seperator (40)" bA
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+endsnippet
+
+snippet ssecsep "Subsection seperator (20)" bA
+
+%%%%%%%%%%%%%%%%%%%%
+
+endsnippet
+
+###################### Editing ######################
+
+snippet bld "bold" wA
+\textbf{$1}
+endsnippet
+
+snippet bds "bold select" iA
+\textbf{${VISUAL}}$0
+endsnippet
+
+snippet itl "italic" wA
+\textit{$1}
+endsnippet
+
+snippet ils "italic select" iA
+\textit{${VISUAL}}$0
+endsnippet
+###################### Misc ######################
+
+snippet today
+`date +%d/%m/%y`
+endsnippet

@@ -21,14 +21,14 @@ for config_file ($ZDOTDIR/Base_configs/*.zsh) source $config_file
 ###################################
 
 # Automatically install Antidote
-[[ -d ${ZDOTDIR:-~}/antidote ]] ||
-  git clone https://github.com/mattmc3/antidote ${ZDOTDIR:-~}/antidote
+[[ -d ${ZDOTDIR:-$HOME}/antidote ]] ||
+  git clone https://github.com/mattmc3/antidote ${ZDOTDIR:-$HOME}/antidote
 
 # Make plugin directories' names more friendly
 zstyle ':antidote:bundle' use-friendly-names 'yes'
 
 # source antidote
-source ${ZDOTDIR:-~}/antidote/antidote.zsh
+source ${ZDOTDIR:-$HOME}/antidote/antidote.zsh
 
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load

@@ -1,6 +1,6 @@
 #! bin/zsh
 
-HISTFILE=~/.config/zsh/.zsh_history
+HISTFILE=$HOME/.config/zsh/.zsh_history
 HISTSIZE=30000
 SAVEHIST=100000
 

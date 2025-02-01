@@ -39,6 +39,7 @@ Plug 'bullets-vim/bullets.vim', {'for': ['text', 'markdown', 'gitcommit']}
 Plug 'dstein64/vim-startuptime'
 Plug 'dense-analysis/ale'
 Plug 'lervag/vimtex'
+Plug 'SirVer/ultisnips'
 
 " Enable copying to system clipboard on systems that supports ANSI OSC52
 " Not needed for NeoVim as it has this by default
@@ -314,3 +315,7 @@ augroup vimtex_event_1
     autocmd!
     autocmd User VimtexEventQuit     VimtexClean
 augroup END
+
+"----------UltiSnips---------------"
+
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "Snippets"]

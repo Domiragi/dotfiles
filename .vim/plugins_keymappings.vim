@@ -114,3 +114,10 @@ nnoremap <silent> <Leader>ed <Plug>(ale_detail)
     " autocmd Filetype tex inoremap <C-b> <Esc><Plug>(vimtex-cmd-create)textbf<CR>i
     " autocmd Filetype tex vnoremap <C-b> <Plug>(vimtex-cmd-create)textbf<CR>
 " augroup END
+
+"----------UltiSnips---------------"
+
+let g:UltiSnipsExpandTrigger       = '<tab>'
+" let g:UltiSnipsListSnippets = ''
+let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
