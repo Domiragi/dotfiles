@@ -1,0 +1,352 @@
+*cheatsheet*  Cheatsheet for base Vim, Vim plugins and custom commands
+*Cheatsheet*
+
+================================================================================
+Contents                                                          *chs-contents*
+
+1. Base Vim                          |chs-vim|
+    1.1 Normal Mode                  |chs-vim-normal|
+    1.2 Insert Mode                  |chs-vim-insert|
+    1.3 Visual Mode                  |chs-vim-visual|
+    1.4 Command Mode/Search          |chs-vim-commandsearch|
+    1.5 Others                       |chs-vim-others|
+2. Plugins                           |chs-plugins|
+    2.1 VimPlug                      |chs-vimplug|
+    2.2 AutoPairs                    |chs-autopairs|
+    2.3 EasyAlign                    |chs-easyalign|
+    2.4 BetterWhiteSpace             |chs-betterwhitespace|
+    2.5 Startify                     |chs-startify|
+    2.6 Fugitive                     |chs-fugitive|
+    2.7 BulletsVim                   |chs-bulletsvim|
+    2.8 VimSurround                  |chs-vimsurround|
+    2.9 TargetsVim                   |chs-targetsvim|
+    2.10 ALE                         |chs-ale|
+    2.11 VimTex                      |chs-vimtex|
+    2.12 UltiSnips                   |chs-ultisnips|
+3. Custom commands                   |chs-custom|
+
+
+================================================================================
+1. Base Vim  *chs-vim*
+
+--------------------------------------------------------------------------------
+1.1 Normal Mode *chs-vim-normal*
+
+`D`  : Delete from cursor to end of line
+`C`  : Delete from cursor to end of line then put into Insert mode
+`S`  : Delete whole line then put into Insert mode
+`gE` : Go to end of previous word
+`*`  : Search word under cursor
+
+Save string to register 0-9 or a-z (case insensitive), 0 is the default for
+yanked text, " is used for yanked/cut/copied text:
+>
+    "[0-9]y
+    "[a-z]y
+<
+--------------------------------------------------------------------------------
+1.2 Insert Mode *chs-vim-insert*
+
+<C-w> : Delete word
+
+--------------------------------------------------------------------------------
+1.3 Visual Mode *chs-vim-visual*
+
+`U` : Capitalize/uncapitalize section
+`=` : Adjust indentation of section
+
+--------------------------------------------------------------------------------
+1.4 Command Mode/Search *chs-vim-commandsearch*
+
+Search case-insensitive (can also use for search and replace):
+>
+    /\c{searchstring}
+<
+Search case-sensitive (default):
+>
+    /\C{searchstring}
+<
+Search with the string pasted from register 0-9 (Can also be used for command
+mode):
+>
+    /<C-r>{0-9}
+<
+Global search and replace:
+>
+    :[range]%s/searchstring/replacestring/g
+<
+--------------------------------------------------------------------------------
+1.5 Others *chs-vim-others*
+
+<C-i> : Make Vim accept autosugestion
+
+Update multiple lines:
+
+    <C-v> -> Select selection -> <S-i> -> Write change -> `kj`
+
+Expand and show all completion/suggestion:
+
+    `:e` -> <C-d>
+
+After using autocompletion, accept the selection (Yes) and continue:
+
+    `:e` -> <C-y>
+
+================================================================================
+
+2. Plugins *chs-plugins*
+
+--------------------------------------------------------------------------------
+2.1 VimPlug *chs-vimplug*
+>
+    :PlugInstall
+    :PlugUpdate
+    :PlugDiff
+    :PlugClean
+<
+--------------------------------------------------------------------------------
+2.2 AutoPairs *chs-autopairs*
+
+<M-b> : Add bracket instead of jumping to the end pair after the jump
+<M-n> : Jump to the next closed pair
+<M-e> : Add/fast wrap/swallow the next string into current pair
+
+--------------------------------------------------------------------------------
+2.3 EasyAlign *chs-easyalign*
+
+Select with V-Line or V-Block to limit the scope, or edit on the entire file:
+>
+    ga [opt-Enter][opt-Nth]<Delimeter>
+<
+Where:
+- [opt-Enter]: press Enter 1/2/3 times to cycle left/right/center alignment
+- [opt-Nth]: N-th delimeter:
+    1  : 1st occurrence
+    2  : 2nd occurence
+    ...
+    *  : All occurences
+    ** : Left-right alternating alignment around all occurences
+    -  : Last occurence
+    -2 : Second to last occurence
+    ...
+- <Delimiter>: <Space>, "=" , ";" , "." , "|" , "&" , "#" , "," , """, or a
+  regular expression with <Ctrl-x>
+
+While in interactive mode (automatically entered when pressing `ga`):
+- <Ctrl-P>       : Enter preview mode. In preview mode, you need to enter the
+                   delimter twice to finalize the result.
+- <Ctrl-G>       : Switch between ignore groups: [], ['String'], ['Comment'],
+                   ['String', 'Comment'].
+- <Ctrl-L>       : Enter the number for left margin space (number of spaces on
+                   the left side of delimiter).
+- <Ctrl-R>       : Enter the number for right margin space (number of spaces on
+                   the right side of delimiter).
+- <Left>/<Right> : (stl=1 or stl=0) Set whether to stick the delimiter to the
+                   left or right.
+- <Ctrl-D>       : Change how to align delimeter of different length (such as a
+                   group of "=", "+=", "!==" to align around the
+                   left/center/right symbol).
+
+--------------------------------------------------------------------------------
+2.4 BetterWhitespace *chs-betterwhitespace*
+>
+    :EnableWhitespace
+    :DisableWhitespace
+    :ToggleWhitespace
+    :[range]NextTrailingWhitespace
+    :[range]PrevTrailingWhitespace
+    :[range]StripWhitespace[!]
+    :[range]StripWhitespaceOnChangedLines[!]
+<
+--------------------------------------------------------------------------------
+2.5 Startify *chs-startify*
+
+`i`, <Insert>   : Create a blank buffer and jump into insert mode
+<2-LeftMouse> : Double click left mouse to open the targeted entry
+`b`,`s`, `v`, `t`     : Mark current entry to be opened in either the same
+                window, in a split window, in a vertical split window or in a
+                new tab
+<CR>          : Open all marked entries; if nothing was marked beforehand,
+                just open the current entry
+
+Open the startify buffer:
+>
+    :Startify
+<
+Save or delete a session. If you don't specify a session name, it will prompt
+you for one. Use `:SSave!` or `:SDelete!` to always overwrite or delete an
+existing session:
+>
+    :SSave[!] [session]
+    :SDelete[!] [session]
+<
+Load a session. If you don't specify a session name, it will prompt you for
+one. If the `!` is given, it tries to source the last used session (only Unix):
+>
+    :SLoad[!] [session]
+<
+Save and close the current session, close all listed buffers, and open the
+Startify buffer:
+>
+    :SClose
+<
+--------------------------------------------------------------------------------
+2.6 Fugitve *chs-fugitive*
+
+For all commands, after entering interactive mode, press `g?` to open help and
+show mappings:
+>
+    :G {args} or :Git {args}
+<
+With no arguments, bring up a summary window equal to git-status with some
+interactive options. With arguments, function like `:git`:
+>
+    :G --paginate {args}
+<
+Run a git command, capture output to a temp file and show in a split window:
+>
+    :Git blame [flags]
+    :[range]Git blame [...] {file}
+<
+Invoke git diff and load the changes into a quick fix listed:
+>
+    :Git[!] difftool [args]
+>
+Similar but open each changed file in a new tab and split:
+>
+    :Git difftool -y [args]
+>
+Use git log to load the commit history into the quickfix list:
+>
+    :Gclog[!] [args]
+    :{range}Gclog[!] [args]
+<
+Similar but use the location list instead:
+>
+    :Gllog [args]
+<
+--------------------------------------------------------------------------------
+2.7 BulletsVim *chs-bulletsvim*
+>
+    :RenumberSelection
+    :RenumberList          "Renumber all the bullets in list. A list is marked
+                            by a blank line before and after the paragraph/list
+    :BulletDemote          "mapped to <C-t> in Insert Mode, ">>" in Normal Mode
+    :BulletPromote         "mapped to <C-d> in Insert Mode, "<<" in Normal mode
+    :BulletDemoteVisual    "mapped to > in Visual mode
+    :BulletPromoteVisual   "mapped to < in Visual mode
+<
+--------------------------------------------------------------------------------
+2.8 Vim-surround *chs-vimsurround*
+
+`cs"'`  : Change surround " to '
+`ds"`   : Delete surround "
+`ysiw]` : Add surround []
+`ysiw[` : Add surround [] with padded space
+`yss)`  : Add surround around entire line with ()
+
+--------------------------------------------------------------------------------
+2.9 targets.vim *chs-targetsvim*
+
+Modify the text objects of vim to add new capabilities
+
+`d2i)`  : Delete inisde the 2nd pairs of () counting out from the
+        current cursor
+`d2i(`  : Similar to above, but also include the whitespace
+`dni)`  : Delete inside the nth pairs of ()
+`dil)`  : Delete inside the previous pair of ()
+`din)`  : Delete inside the next pair of ()
+`d2il)` : Delete inside the pair () in the 2nd layer of the previous pair of ()
+
+--------------------------------------------------------------------------------
+2.10 ALE *chs-ale*
+`q` : Close preview window opened by ALE
+
+Commands:
+>
+    :ALEToggle
+    :ALEToggleBuffer
+    :ALEInfo
+    :ALEInfoToFile "Print ALEInfo to a file
+    :ALEPopulateLoclist
+    :ALEPopulateQuickfix
+<
+
+Custom commands:
+>
+    :LLI/LLW/LLE "Filter Loclist to show only Info/Warning/Error
+    :QFI/QFW/QFE "Filter Quickfix to show only Info/Warning/Error
+<
+--------------------------------------------------------------------------------
+2.11 Vimtex *chs-vimtex*
+
+`<F6>` : Insert an environment `\begin\end` pair:
+`<F7>` : Insert a command
+
+Delete, Change, Toggle (Environment, Command, Math, Delimiter)
+  - Delete: `dse`, `dsc`, `ds$`, `dsd`
+  - Change: `cse`, `csc`, `cs$`, `csd`
+  - Toggle: `tse`, `tsc`, `ts$`, `tsd`
+
+Motions
+- Move between section boundaries: `[[`, `]]`
+- Move between environment boundaries: `[m` (next `\begin`), `[M`(next `\end`),
+  `]m`(last `\begin`), `]M`(last `\end`)
+- Move between math environment boundaries: `[n`, `[N`, `]n`, `]N`
+- Move between frame environment boundaries: `[r`, `[R`, `]r`, `]R`
+- Move between comment boundaries: `[*` and `]*`
+- Move between matching delimiters: `%`
+
+Text objects
+- `ic` `ac` Commands
+- `id` `ad` Delimiters
+- `ie` `ae` LaTeX environments
+- `i$` `a$` Math environments
+- `iP` `aP` Sections
+- `im` `am` Items
+
+Default `localleader` : `\`
+
+Hotkeys: `:help vimtex-default-mappings`
+>
+    <localleader>ll  |<plug>(vimtex-compile)|
+    <localleader>lL  |<plug>(vimtex-compile-selected)|
+    <localleader>lt  |<plug>(vimtex-toc-open)|
+    <localleader>lv  |<plug>(vimtex-view)|
+    <localleader>lq  |<plug>(vimtex-log)|
+    <localleader>lk  |<plug>(vimtex-stop)|
+    <localleader>lK  |<plug>(vimtex-stop-all)|
+    <localleader>lo  |<plug>(vimtex-compile-output)|
+    <localleader>lg  |<plug>(vimtex-status)|
+    <localleader>lG  |<plug>(vimtex-status-all)|
+    <localleader>lc  |<plug>(vimtex-clean)|
+    <localleader>lC  |<plug>(vimtex-clean-full)|
+    <localleader>lx  |<plug>(vimtex-reload)|
+<
+--------------------------------------------------------------------------------
+2.12 UltiSnips *chs-ultisnips*
+>
+    :UltiSnipsEdit  " Edit the snippet definition file for the current filetype
+<
+
+================================================================================
+3.13 Custom commands *chs-custom*
+
+Show cheatsheet:
+>
+    :CHS
+<
+Open current .tex file as PDF with Zathura:
+>
+    :PDF
+<
+
+================================================================================
+
+NOTE: Whenever a new section is added, the tags need to be regenerated, check
+`:help help` for specific infos:
+>
+    :helptags {dir}
+<
+
+vim: ts=4:ft=help

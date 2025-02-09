@@ -52,4 +52,10 @@ command QFW :call s:QFListWarningFilter()
 command QFE :call s:QFListErrorFilter()
 
 " Open the current tex file as pdf with Zathura
+
 command PDF execute ":silent !zathura '%:r'.pdf &" | execute ":redraw!"
+
+" Miscs
+
+command CHS :h cheatsheet
+command ECHS :e $HOME/dotfiles/.vim/doc/cheatsheet.txt | :set wrap | :set textwidth=80 | :set linebreak
