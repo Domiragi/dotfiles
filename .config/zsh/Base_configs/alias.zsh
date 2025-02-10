@@ -41,3 +41,10 @@ alias yayls="yay -Qe"   # List installed packages
 alias yayrm="yay -Rns"  # Remove package with its settings and uneeded dependencies
 alias yayclr="yay -Scc" # Remove all old and unused cached packages
 alias yayinf="yay -Si"  # Display info about a package in the repositories
+
+# trash.cli
+alias trs="trash-put"        # Remove file(s)/folder(s)
+alias trsls="trash-list"      # List removed files/folders
+alias trsemp="trash-empty"   # Empty trash bin
+alias trsres="trash-restore" # Restored trashed files/folders
+alias trsrm="trash-rm"       # Remove individual file/folder from trash bin
