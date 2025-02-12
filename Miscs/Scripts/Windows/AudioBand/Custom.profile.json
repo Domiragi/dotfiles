@@ -322,7 +322,7 @@
   },
   "ProgressBar": {
     "ForegroundColor": "#FF14D058",
-    "ForegroundGradientColor": "#FF005B21",
+    "ForegroundGradientColor": "#FF006524",
     "BackgroundColor": "#4BFFFFFF",
     "HoverColor": "#FFC07C00",
     "ProgressBarThumbColor": "#FFFFFFFF",
