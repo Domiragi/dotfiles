@@ -40,6 +40,7 @@ Plug 'dstein64/vim-startuptime'
 Plug 'dense-analysis/ale'
 Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
+Plug 'junegunn/vim-peekaboo'
 
 " Enable copying to system clipboard on systems that supports ANSI OSC52
 " Not needed for NeoVim as it has this by default

@@ -23,6 +23,7 @@ Contents                                                          *chs-contents*
     2.10 ALE                         |chs-ale|
     2.11 VimTex                      |chs-vimtex|
     2.12 UltiSnips                   |chs-ultisnips|
+    2.13 Vim-Peekaboo                |chs-peekaboo|
 3. Custom commands                   |chs-custom|
 
 
@@ -328,6 +329,10 @@ Hotkeys: `:help vimtex-default-mappings`
 >
     :UltiSnipsEdit  " Edit the snippet definition file for the current filetype
 <
+--------------------------------------------------------------------------------
+2.13 Vim-Peekaboo *chs-peekaboo*
+
+<Space> : Toggle fullscreen mode
 
 ================================================================================
 3.13 Custom commands *chs-custom*
