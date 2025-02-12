@@ -12,4 +12,4 @@ A Windows Terminal app from Microsoft that allows opening and using different te
 The full document can be found on the [Microsoft website](https://learn.microsoft.com/en-us/windows/terminal/).
 
 ## AudioBand
-[AudioBand](https://github.com/AudioBand/AudioBand) is an app to display Spotify and other audio sources in Taskbar. Before importing the JSON profile, the var `%ICONS_DIR` should be updated to point to a local copy of the `Assets` folder.
+[AudioBand](https://github.com/AudioBand/AudioBand) is an app to display Spotify and other audio sources in Taskbar. Before importing the JSON profile, the var `%ICONS_DIR%` should be updated to point to a local copy of the `Assets` folder.
