@@ -31,6 +31,7 @@ alias clear='clear -x'
 alias fdir='find . -type d -name' # Find dir in current directory
 alias ff='find . -type f -name' # Find file in current directory
 alias hgrep='fc -El 0 | grep' # Search command in history, display command number and time of execution
+
 # Print a simple colormap.
 alias colormap='for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+"\n"}; done'
 
@@ -44,7 +45,19 @@ alias yayinf="yay -Si"  # Display info about a package in the repositories
 
 # trash.cli
 alias trs="trash-put"        # Remove file(s)/folder(s)
-alias trsls="trash-list"      # List removed files/folders
+alias trsls="trash-list"     # List removed files/folders
 alias trsemp="trash-empty"   # Empty trash bin
 alias trsres="trash-restore" # Restored trashed files/folders
 alias trsrm="trash-rm"       # Remove individual file/folder from trash bin
+
+# Git
+alias gst="git status"
+alias gcm="git commit"
+alias gcl="git clean"
+alias gad="git add"
+alias ghs="git hs"
+alias ghst="git hst"
+alias ghsf="git hsf"
+alias gdf="git diff"
+alias gds="git diff --stat"
+
