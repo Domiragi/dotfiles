@@ -317,6 +317,10 @@ augroup vimtex_event_1
     autocmd User VimtexEventQuit     VimtexClean
 augroup END
 
-"----------UltiSnips---------------"
+"-----------UltiSnips----------------"
 
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "Snippets"]
+
+"---------Vim-Peekaboo--------------"
+
+let g:peekaboo_delay=1000
