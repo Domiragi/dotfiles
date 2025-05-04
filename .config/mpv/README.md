@@ -8,11 +8,13 @@ https://mpv.io/installation/
 ## My config files
 **Windows**
 
-Download and copy all files and folders from the git repo to "%APPDATA%/mpv/", which is generally: "C:\users\USERNAME\AppData\Roaming\mpv\".
+Download and copy all files and folders from the git repo to `%APPDATA%/mpv/`, which is generally:
+
+`C:\users\USERNAME\AppData\Roaming\mpv\`
 
 **Linux/Unix systems**
 
-Download and copy all files and folders to "~/.config/mpv".
+Download and copy all files and folders to `~/.config/mpv`.
 
 **NOTE:**
 Mpv may disable Screen Saver on Unix systems, check the official doc for fix: https://mpv.io/manual/stable/#linux-desktop-issues
