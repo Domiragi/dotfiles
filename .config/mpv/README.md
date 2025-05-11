@@ -1,3 +1,7 @@
+<p align="center">
+<a href="#version_badge"><img alt="Version" src="https://img.shields.io/badge/Last%20tested%20mpv-v0.37.0-blue?style=flat&logo=mpv&logoColor=white"></a>
+</p>
+
 [Mpv](https://mpv.io/) is a lightweight multimedia player that allows for customization.
 
 # Installation
